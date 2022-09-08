@@ -61,7 +61,7 @@
             </div>
             <div class="col-6">
                 <label for="inputAddress2" class="form-label">status wait=0 deploy=1 end=2</label>
-                <input type="number" name="status" class="form-control" id="inputAddress2" value="0" placeholder="">
+                <input type="text" name="status" class="form-control" id="inputAddress2" value="0" placeholder="">
             </div>
             <div class="col-12">
                 <textarea name="content" id="" cols="100" rows="10" placeholder="イベント内容"></textarea>
