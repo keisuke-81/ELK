@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+body{
+    background-color:lightcyan;
+}
+
+.top-title{
+    font-family: 'Luckiest Guy';
+    /* font-family:'Mochiy Pop P One','Ribeye Marrow','Courier New', Courier, monospace; */
+}
+
+.wf-nicomoji {
+    font-family: "Nico Moji";
+}
+.j-font{
+    font-family: 'Yusei Magic', sans-serif
+}
+.text-under-none{
+    text-decoration: none;
+}
+.brown-color{
+    background-color:rgb(235, 116, 57);
+}
+
+.font-regu{
+    font-size: 1.15rem;
+}
+.font-regu2{
+    font-size: 1.25rem;
+}
+
+.hidden{
+    visibility: hidden
+}
+
+
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+#wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/*========= waveを描画するエリア設定 ===============*/
+
+canvas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

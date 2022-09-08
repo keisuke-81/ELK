@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TopController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top/top');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/top', [TopController::class, 'top'])->name('top');
+Route::get('/eventDetail', [TopController::class, 'eventDetail'])->name('eventDetail');
+Route::get('/calendar', [TopController::class, 'calendar'])->name('calendar');
+
+
