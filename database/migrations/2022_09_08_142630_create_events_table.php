@@ -14,9 +14,9 @@ class CreateEventsTable extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->unsignedBigIncrements('id',true);
+            $table->unsignedBigInteger('id',true);
             $table->string('title');
-            $table->unsignedBigIncrements('school_id');
+            $table->unsignedBigInteger('school_id');
             $table->datetime('event_day');
             $table->string('area');
             $table->integer('target_min_age');
@@ -29,8 +29,8 @@ class CreateEventsTable extends Migration
             $table->string('event_url');
             $table->enum('status',['wait','open','end']);
             $table->softDeletes();
-            $table->timestamps('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-            $table->timestamps('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->foreign('school_id')->references('id')->on('users');
 
 
