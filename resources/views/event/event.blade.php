@@ -1,4 +1,4 @@
-@extends('top.top')
+@extends('layouts.top')
 
 @section('category')
 <div class="card">
@@ -25,10 +25,10 @@
                             <br>
                             <a href="/top" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
                             <br>
-                             @foreach ($tags as $tag)
-                            <a href="/top/?tag_abe={{ $tag['id'] }}" class="card-text d-block text-under-none text-success"><h4>{{ $tag['name'] }}</h4></a>
+                             {{-- @foreach ($tags as $tag) --}}
+                            {{-- <a href="/top/?tag_abe={{ $tag['id'] }}" class="card-text d-block text-under-none text-success"><h4>{{ $tag['name'] }}</h4></a> --}}
                             <br>
-                            @endforeach
+                            {{-- @endforeach --}}
 
 
                         </div>
@@ -43,14 +43,16 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="{{ asset('storage/sample/event3.png') }}">
+            <img src="">
             <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
             </div>
             </div>
+             ここに画像がきます
             <div class="carousel-item">
-            <img src="{{ asset('storage/sample/event2.png') }}">
+            <img src="" alt="画像がきます">
+
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
@@ -58,7 +60,7 @@
             </div>
             </div>
             <div class="carousel-item">
-            <img src="{{ asset('storage/sample/yamituki.png') }}">
+            <img src="">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
@@ -85,20 +87,20 @@
                         </div>
                         <div class="row">
                            {{-- <div class="card-body"> --}}
-                             @foreach ($memos as $memo)
+                             {{-- @foreach ($memos as $memo) --}}
                              <div class="card-body col-4 flex-fill bd-highlight">
 
                                 {{-- カードを入れてみる --}}
                                 <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="{{ asset('storage/sample/yamituki.png') }}" alt="Card image cap">
+                                <img class="card-img-top" src="" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title"><a href="/eventDetail/?event={{ $memo['id'] }}" class="card-text d-block">{{ $memo['content'] }}</a></h5>
+                                    <h5 class="card-title"><a href="" class="card-text d-block"></a></h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="/eventDetail/?event={{ $memo['id'] }}" class="btn btn-primary">Go somewhere</a>
+                                    <a href="/eventDetail/?event=" class="btn btn-primary">Go somewhere</a>
                                 </div>
                                 </div>
                             </div>
-                            @endforeach
+                            {{-- @endforeach --}}
 
 
                         {{-- </div> --}}

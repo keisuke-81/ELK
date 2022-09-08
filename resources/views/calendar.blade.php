@@ -1,4 +1,4 @@
-@extends('top.top')
+@extends('layouts/top')
 @section('category')
  <div class="card">
                         <div class="card-header ">

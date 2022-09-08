@@ -18,11 +18,12 @@ use App\Http\Controllers\TopController;
 */
 
 Route::get('/', function () {
-    return view('top/top');
+    return view('layouts/top');
 });
 
 Auth::routes();
 
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/top', [TopController::class, 'top'])->name('top');
 Route::get('/eventDetail', [TopController::class, 'eventDetail'])->name('eventDetail');

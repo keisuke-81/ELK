@@ -19,7 +19,7 @@ class TopController extends Controller
        //dd($tags);
      //  return view('event',compact('tags','image'));
 
-        return view('top/top');
+        return view('event.event');
 
 
 
@@ -41,7 +41,7 @@ class TopController extends Controller
 
 
     }
-    
+
     public function calendar()
     {
         //ここでメモデータを取得

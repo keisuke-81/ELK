@@ -1,4 +1,4 @@
-@extends('top.top')
+@extends('layouts/top')
 
 
 @section('category')
