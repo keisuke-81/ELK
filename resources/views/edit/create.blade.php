@@ -7,84 +7,78 @@
         <div class="row g-0">
             <div class="col-md">
             <form method="POST" action="/upload" enctype="multipart/form-data">
-            @csrf
-            <input type="file" name="image">
-            <button>アップロード</button>
-            </form>
+                @csrf
+                <input type="file" name="image">
+                <button>アップロード</button>
+                </form>
+                <img src="{{ asset('storage/sample/yubikiri_business.png
+') }}">
             </div>
 
-            <form class="row g-3">
+            <form method="POST" action="{{ route('store') }}" class="row g-3">
+                 @csrf
                 <div class="col-md-6">
             <div class="col-12"><h2>イベント情報入力</h2></div>
 
                 <label for="inputEmail4" class="form-label">eventTitle</label>
-                <input type="name" class="form-control" id="inputEmail4">
+                <input type="name" name="title" class="form-control" id="inputEmail4">
                 </div>
                 <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">eventDay</label>
-                <input type="date" class="form-control" id="inputEmail4">
+                <input type="date" name="event_day" class="form-control" id="inputEmail4">
             </div>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">target_min_age</label>
-                <input type="number" class="form-control" id="inputEmail4">
+                <input type="number" name="target_min_age" class="form-control" id="inputEmail4">
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">target_max_age</label>
-                <input type="number" class="form-control" id="inputPassword4">
+                <input type="number" name="target_max_age" class="form-control" id="inputPassword4">
             </div>
             <div class="col-12">
                 <label for="inputAddress" class="form-label">school_name</label>
-                <input type="name" class="form-control" id="inputAddress" placeholder="">
+                <input type="number" name="school_id" class="form-control" id="inputAddress" placeholder="">
             </div>
             <div class="col-6">
                 <label for="inputAddress2" class="form-label">area</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="都道府県">
+                <input type="text" name="area" class="form-control" id="inputAddress2" placeholder="都道府県">
             </div>
             <div class="col-6">
                 <label for="inputAddress2" class="form-label">myEvent=1 , another=0</label>
-                <input type="number" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <input type="number" name="my_event" class="form-control" id="inputAddress2" value="0" placeholder="Apartment, studio, or floor">
             </div>
             <div class="col-6">
                 <label for="inputAddress2" class="form-label">priceFree=1 , notFree=0</label>
-                <input type="number"" class="form-control" id="inputAddress2" placeholder="">
+                <input type="number" name="price_free" class="form-control" id="inputAddress2" value="0" placeholder="">
             </div>
             <div class="col-6">
                 <label for="inputAddress2" class="form-label">price</label>
-                <input type="number" class="form-control" id="inputAddress2" placeholder="">
+                <input type="number" name="price" class="form-control" id="inputAddress2" placeholder="">
+            </div>
+            <div class="col-6">
+                <label for="inputAddress2" class="form-label">eventUrl</label>
+                <input type="url" name="event_url" class="form-control" id="inputAddress2" placeholder="">
+            </div>
+            <div class="col-6">
+                <label for="inputAddress2" class="form-label">status wait=0 deploy=1 end=2</label>
+                <input type="number" name="status" class="form-control" id="inputAddress2" value="0" placeholder="">
             </div>
             <div class="col-12">
-                <textarea name="" id="" cols="100" rows="10" placeholder="イベント内容"></textarea>
+                <textarea name="content" id="" cols="100" rows="10" placeholder="イベント内容"></textarea>
 
             </div>
             <div class="col-12">
-                <textarea name="" id="" cols="100" rows="10" placeholder="イベント内容要約"></textarea>
+                <textarea name="content_summary" id="" cols="100" rows="10" placeholder="イベント内容要約"></textarea>
 
             </div>
-            <div class="col-md-6">
-                <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-                <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select">
-                <option selected>Choose...</option>
-                <option>...</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+
+
+
+            <div class="col-12">
+
             </div>
             <div class="col-12">
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Check me out
-                </label>
-                </div>
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary">データ送信</button>
             </div>
             </form>
         </div>

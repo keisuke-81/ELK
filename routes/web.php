@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\ImageController;
+
 
 
 
@@ -28,5 +30,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/top', [TopController::class, 'top'])->name('top');
 Route::get('/eventDetail', [TopController::class, 'eventDetail'])->name('eventDetail');
 Route::get('/calendar', [TopController::class, 'calendar'])->name('calendar');
+Route::post('/upload', [ImageController::class, 'upload'])->name('upload');
+Route::post('/store', [HomeController::class, 'store'])->name('store');
+
 
 
