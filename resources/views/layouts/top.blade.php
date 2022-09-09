@@ -65,7 +65,7 @@
             <div class="container j-font">
             <div class="row">
              <div class="col-md-2 p-0">
-                ここにcategory
+
                     @yield('category')
 
                 </div>
@@ -87,14 +87,14 @@
                         </div>
 
                     <div class="col-8">
-                        ここにcontent4
+
                     @yield('content4')
                     </div>
 <button></button>
                     </div>
 
                 </div>
-                ここにcontent3
+                
                     @yield('content3')
 
             </div>

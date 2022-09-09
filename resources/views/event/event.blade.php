@@ -86,21 +86,23 @@
 
                         </div>
                         <div class="row">
-                           {{-- <div class="card-body"> --}}
-                             {{-- @foreach ($memos as $memo) --}}
+                           <div class="card-body">
+
+                             @foreach ($events as $event)
                              <div class="card-body col-4 flex-fill bd-highlight">
 
                                 {{-- カードを入れてみる --}}
                                 <div class="card" style="width: 18rem;">
                                 <img class="card-img-top" src="" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title"><a href="" class="card-text d-block"></a></h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="/eventDetail/?event=" class="btn btn-primary">Go somewhere</a>
+                                    <h5 class="card-title">{{ $event->title }}</h5>
+                                    <p class="card-text">{{ $event->content_summary }}</p>
+                                    <td><a href="{{ route('show', ['id'=>$event->id]) }}" class="btn btn-primary">詳細</a></td>
+                                    {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
                                 </div>
                                 </div>
                             </div>
-                            {{-- @endforeach --}}
+                            @endforeach
 
 
                         {{-- </div> --}}

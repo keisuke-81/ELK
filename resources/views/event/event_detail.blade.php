@@ -77,6 +77,7 @@
         </div>
 @endsection
 @section('content3')
+{{-- {{ dd($events) }} --}}
 <div class="card mb-3" style="">
   <div class="row g-0">
     <div class="col-md">
@@ -85,15 +86,15 @@
     <div class="col-md">
       <div class="">
         <h3 class="card-title">＜イベントタイトル＞</h3>
-        <p class="font-regu2">みんなでお絵描き</p>
+        <p class="font-regu2">{{ $events->title }}</p>
         <ul class="font-regu ">
           <li>イベント日時：</li>
-          <p>2022/10/10</p>
+          <p>{{ $events->title }}</p>
           <li>対象年齢</li>
-          <p>6歳〜</p>
+          <p>{{ $events->title }}</p>
           <li>イベント運営会社</li>
-          <p>キッズクラブ</p>
-          <li>無料</li>
+          <p>{{ $events->title }}</p>
+          <li>{{ $events->title }}</li>
         </ul>
 
       </div>
@@ -101,23 +102,20 @@
   </div>
 
   <div class="card-body font-regu">
-    <h5 class="card-title">(イベント内容)</h5>
-    <p class="card-text">思いっきり絵の具！
-プチ工作、楽器、親子で体遊び、絵本　etc.
 
-年齢や月齢ごとに変化する、子どものキラッと光る「旬の成長」を見つけるアートワークです。
-20年の歴史を持つ「赤ちゃんアート」スタッフが、それぞれのお子さんの成長にあう関わり方やアート表現をサポート。</p>
+    <h5 class="card-title">(イベント内容)</h5>
+    <p class="card-text">{{ $events->title }}</p>
   </div>
   <ul class="list-group list-group-flush font-regu">
-    <li class="list-group-item">(イベントカテゴリ)<p>アート・家族で一緒に</p></li>
+    <li class="list-group-item">(イベントカテゴリ)<p>{{ $events->title }}</p></li>
 
-    <li class="list-group-item">(スクールについて) <p><a href="https://www.art-friendship.org/">イベントの公式サイトへ</a>(外部リンク)</p></li>
-    <li class="list-group-item">(スクール住所)<p>神奈川県茅ヶ崎市東海岸北1-4-45茅ヶ崎市美術館　2Fアトリエ室</p></li>
-    {{-- <li class="list-group-item"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13020.747285214595!2d139.406301!3d35.326182!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfa5816e966e0d23c!2zMzXCsDE5JzM0LjMiTiAxMznCsDI0JzIyLjciRQ!5e0!3m2!1sja!2sus!4v1662596001698!5m2!1sja!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></li> --}}
-    <li class="list-group-item">(スクール連絡先)<p></p></li>
+    <li class="list-group-item">(スクールについて) <p><a href="{{ $events->title }}">イベントの公式サイトへ(外部リンク)</a></p></li>
+    <li class="list-group-item">(スクール住所)<p>{{ $events->title }}</p></li>
+
+    <li class="list-group-item">(スクール連絡先)<p>{{ $events->title }}</p></li>
   </ul>
   <div class="card-body">
-    <button type="button" onclick="location.href='https://www.art-friendship.org/%E5%BD%93%E4%BC%9A%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0/'" class="btn btn-primary btn-lg">お申込みへ(外部リンク)</button>
+    <button type="button" onclick="{{ $events->title }}" class="btn btn-primary btn-lg">お申込みへ(外部リンク)</button>
   </div>
 </div>
 
