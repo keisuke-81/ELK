@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
+<div class="row ">
     <div class="col-6">
-        <div class="card mb-3" style="">
-        <div class="row g-0">
+        <div class="card mb-3 " style="">
+        <div class="row g-0 ">
             <div class="col-md">
             <form method="POST" action="/upload" enctype="multipart/form-data">
                 @csrf
@@ -77,6 +77,55 @@
             <div class="col-12">
 
             </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">データ送信</button>
+            </div>
+            </form>
+              <form method="POST" action="{{ route('school') }}" class="row g-3 bg-info">
+                 @csrf
+                <div class="col-md-6 ">
+            <div class="col-12"><h2>スクール情報</h2></div>
+
+                <label for="inputEmail4" class="form-label">school_name</label>
+                <input type="name" name="school_name" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">school_url</label>
+                <input type="url" name="school_url" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">school_address</label>
+                <input type="text" name="school_address" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">school_tel</label>
+                <input type="number" name="school_tel" class="form-control" id="inputPassword4">
+            </div>
+
+            <div class="col-12">
+                <textarea name="about" id="" cols="100" rows="10" placeholder="about"></textarea>
+
+            </div>
+
+
+
+
+            <div class="col-12">
+
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">データ送信</button>
+            </div>
+            </form>
+             <form method="POST" action="{{ route('category') }}" class="row g-3 bg-warning">
+                 @csrf
+                <div class="col-md-6">
+            <div class="col-12"><h2>イベントカテゴリ</h2></div>
+
+                <label for="inputEmail4" class="form-label">name</label>
+                <input type="name" name="name" class="form-control" id="inputEmail4">
+                </div>
+
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">データ送信</button>
             </div>

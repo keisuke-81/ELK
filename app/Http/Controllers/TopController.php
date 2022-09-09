@@ -1,27 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
+
+use App\Models\Event;
+use App\Models\School;
+use App\Models\Category;
+
 
 class TopController extends Controller
 {
     //
      public function top()
     {
-        //ここでメモデータを取得
-
-       // dd($memos);
-    //    $image = new Image();
-
-    //    $tags = Tag::where('user_id','=',\Auth::id())->whereNull('deleted_at')->orderBy('id','DESC')
-    //    ->get();
-       //dd($tags);
-     //  return view('event',compact('tags','image'));
-
-        return view('event.event');
-
-
+        $event = DB::table('events')
+                // ->whereNull('deleted_at')
+                // ->orderBy('updated_at','DESC')
+                ->get();
+            dd($event);
+        return view('top');
 
     }
 

@@ -17,6 +17,7 @@ class CreateSchoolsTable extends Migration
             $table->unsignedBigInteger('id', true);
             $table->string('school_name');
             $table->string('school_url');
+            $table->string('school_address');
             $table->longText('about');
             $table->integer('school_tel');
             $table->softDeletes();
