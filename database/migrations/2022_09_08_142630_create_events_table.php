@@ -22,7 +22,7 @@ class CreateEventsTable extends Migration
             $table->integer('target_min_age');
             $table->integer('target_max_age');
             $table->longText('content');
-            $table->longText('constnt_summary');
+            $table->longText('content_summary');
             $table->integer('price');
             $table->boolean('price_free');
             $table->boolean('my_event');
@@ -31,7 +31,8 @@ class CreateEventsTable extends Migration
             $table->softDeletes();
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
-            $table->foreign('school_id')->references('id')->on('users');
+            $table->foreign('school_id')->references('id')->on('schools');
+
 
 
         });

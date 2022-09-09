@@ -14,8 +14,16 @@ class CreateSchoolsTable extends Migration
     public function up()
     {
         Schema::create('schools', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('id', true);
+            $table->string('school_name');
+            $table->string('school_url');
+            $table->longText('about');
+            $table->integer('school_tel');
+            $table->softDeletes();
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+
+
         });
     }
 

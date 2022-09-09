@@ -11,8 +11,8 @@
                 <input type="file" name="image">
                 <button>アップロード</button>
                 </form>
-                <img src="{{ asset('storage/sample/yubikiri_business.png
-') }}">
+                {{-- <img src="{{ asset('storage/sample/yubikiri_business.png
+') }}"> --}}
             </div>
 
             <form method="POST" action="{{ route('store') }}" class="row g-3">

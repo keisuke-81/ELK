@@ -14,8 +14,11 @@ class CreateEventImagesTable extends Migration
     public function up()
     {
         Schema::create('event_images', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('event_id');
+            $table->unsignedBigInteger('image_id');
+            $table->foreign('event_id')->references('id')->on('events');
+            $table->foreign('image_id')->references('id')->on('images');
+
         });
     }
 
