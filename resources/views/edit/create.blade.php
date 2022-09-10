@@ -39,6 +39,10 @@
                 <label for="inputAddress" class="form-label">school_name</label>
                 <input type="number" name="school_id" class="form-control" id="inputAddress" placeholder="">
             </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">image_id</label>
+                <input type="number" name="image_id" class="form-control" id="inputAddress" placeholder="">
+            </div>
             <div class="col-6">
                 <label for="inputAddress2" class="form-label">area</label>
                 <input type="text" name="area" class="form-control" id="inputAddress2" placeholder="都道府県">

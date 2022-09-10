@@ -78,10 +78,12 @@
 @endsection
 @section('content3')
 {{-- {{ dd($events) }} --}}
+{{-- {{ dd($images) }} --}}
 <div class="card mb-3" style="">
   <div class="row g-0">
     <div class="col-md">
-      {{-- <img src="{{ asset('storage/sample/event2.png') }}"> --}}
+       
+      <img src="{{ asset($images -> path) }}">
     </div>
     <div class="col-md">
       <div class="">

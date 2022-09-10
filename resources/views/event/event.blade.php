@@ -86,18 +86,17 @@
 
                         </div>
                         <div class="row">
-                           <div class="card-body">
-
-                             @foreach ($events as $event)
+                           {{-- <div class="card-body"> --}}
+                             @foreach ($event_images as $event_image)
                              <div class="card-body col-4 flex-fill bd-highlight">
 
                                 {{-- カードを入れてみる --}}
                                 <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="" alt="Card image cap">
+                                <img class="card-img-top" src="{{ asset($event_image -> path) }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $event->title }}</h5>
-                                    <p class="card-text">{{ $event->content_summary }}</p>
-                                    <td><a href="{{ route('show', ['id'=>$event->id]) }}" class="btn btn-primary">詳細</a></td>
+                                    <h5 class="card-title">{{ $event_image->title }}</h5>
+                                    <p class="card-text">{{ $event_image->content_summary }}</p>
+                                    <td><a href="{{ route('show', ['id'=>$event_image->id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
                                 </div>
                                 </div>

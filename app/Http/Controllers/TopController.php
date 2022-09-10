@@ -34,12 +34,27 @@ class TopController extends Controller
         ->orderBy('id','DESC')
         ->get();
 
+        // $images = DB::table('events')
+        // ->select('events.id','images.id as image_id','images.path as image_path')
+        // ->join('images','events.image_id', '=','images.id')
+        // ->get();
+        // $event_images = DB::table('events')
+        // ->select('events.id','images.id as image_id','images.path as image_path')
+        // ->leftJoin('images','events.image_id','=','images.id')
+        // ->get();
+        // dd('$event_images');
+        $event_images = DB::table('events') -> join('images','events.image_id','=','images.id')
+        ->get();
+        //dd($event_images);
+
+
+
        // $school_id =($schools[id]);
        // dd($schools['id']);
 
             //dd($titles);
             //dd($events);
-        return view('event.event',compact('events','categories'));
+        return view('event.event',compact('events','categories','event_images'));
 
     }
 
@@ -59,13 +74,17 @@ class TopController extends Controller
     // }
     public function show($id)
     {
+
         $events = Event::find($id);
         $schools = School::where('id',$events->school_id)
                 ->first();
-    
+        $images = Image::where('id', $events->image_id)
+                ->first();
+
+
        // dd($school);
 
-        return view('event.event_detail', compact('events','schools'));
+        return view('event.event_detail', compact('events','schools','images'));
     }
 
     public function calendar()
