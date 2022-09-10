@@ -100,22 +100,24 @@
       </div>
     </div>
   </div>
-
+{{-- {{ dd($schools->id) }} --}}
   <div class="card-body font-regu">
 
     <h5 class="card-title">(イベント内容)</h5>
-    <p class="card-text">{{ $events->title }}</p>
+    <p class="card-text">{{ $events->content }}</p>
   </div>
   <ul class="list-group list-group-flush font-regu">
     <li class="list-group-item">(イベントカテゴリ)<p>{{ $events->title }}</p></li>
+    <li class="list-group-item">(主催者（スクール名）)<p>{{ $schools->school_name }}</p></li>
+    <li class="list-group-item">(スクールについて)
+        <p>{{ $schools->about }}</p>
+        <p><a href="{{ $schools->school_url }}">イベントの公式サイトへ(外部リンク)</a></p></li>
+    <li class="list-group-item">(スクール住所)<p>{{ $schools->school_address }}</p></li>
 
-    <li class="list-group-item">(スクールについて) <p><a href="{{ $events->title }}">イベントの公式サイトへ(外部リンク)</a></p></li>
-    <li class="list-group-item">(スクール住所)<p>{{ $events->title }}</p></li>
-
-    <li class="list-group-item">(スクール連絡先)<p>{{ $events->title }}</p></li>
+    <li class="list-group-item">(スクール連絡先)<p>{{ $schools->tel }}</p></li>
   </ul>
   <div class="card-body">
-    <button type="button" onclick="{{ $events->title }}" class="btn btn-primary btn-lg">お申込みへ(外部リンク)</button>
+    <button type="button" onclick="{{ $events->event_url }}" class="btn btn-primary btn-lg">お申込みへ(外部リンク)</button>
   </div>
 </div>
 

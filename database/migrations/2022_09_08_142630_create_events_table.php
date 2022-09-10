@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->unsignedBigInteger('id',true);
             $table->string('title');
             $table->unsignedBigInteger('school_id');
+            $table->string('image_id');
             $table->datetime('event_day');
             $table->string('area');
             $table->integer('target_min_age');
