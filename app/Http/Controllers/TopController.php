@@ -113,14 +113,14 @@ class TopController extends Controller
         ->get();
 
 
-        // $events =DB::table('events')
-        // ->whereNull('deleted_at')
-        // ->orderBy('id', 'DESC')
-        // ->get();
+        $events =DB::table('events')
+        ->whereNull('deleted_at')
+        ->orderBy('id', 'DESC')
+        ->get();
 
-        // $images =DB::table('images')
-        // ->orderBy('id', 'DESC')
-        // ->get();
+        $images =DB::table('images')
+        ->orderBy('id', 'DESC')
+        ->get();
 
 
         //dd($events);
@@ -128,13 +128,29 @@ class TopController extends Controller
         $event_categories = Event::select('events.*','categories.id AS category_id')
         ->leftJoin('event_categories','event_categories.event_id','=','events.id')
         ->leftJoin('categories','event_categories.category_id','=','categories.id')
-        ->leftJoin('event_images','event_images.event_id','=','events.id')
-        ->leftJoin('images','images.id','=','events.image_id')
+
         ->where('events.id','=',$id)
         ->whereNull('events.deleted_at')
         ->orderBy('updated_at','DESC')
         ->get();
-       dd($event_categories);
+
+        $vents =DB::table('events')
+            ->join('images', 'images.id', '=', 'events.image_id')
+            ->select('events.*', 'images.path')
+            ->where('events.id','=',$id)
+            ->whereNull('events.deleted_at')
+            ->orderBy('updated_at','DESC')
+            ->get();
+        //dd($vents);
+//このしたらへんは消す予定です。
+        // $event_categories = Event::select('events.*','categories.id AS category_id')
+        // ->rightJoin('event_images','event_images.event_id','=','events.id')
+        // ->rightJoin('images','events.image_id','=','images.id')
+        //  ->where('events.id','=',$id)
+        // ->whereNull('events.deleted_at')
+        // ->orderBy('updated_at','DESC')
+        // ->get();
+       // dd($event_categories);
 
         $include_categories = [];
         foreach($event_categories as $event){
@@ -142,7 +158,7 @@ class TopController extends Controller
         }
 
 
-        $all_data = $event_categories -> join( 'event_categories_id', '=', 'images.id')
+        $all_data = $event_categories -> join('images', 'event_categories_id', '=', 'images.id')
         ->get();
 
         //dd($all_data);
@@ -158,7 +174,7 @@ class TopController extends Controller
 
         //dd($include_category_events);
 
-        return view('event.category_event', compact('events','event_categories','categories','schools','images'));
+        return view('event.category_event', compact('events','event_categories','categories','schools','images','vents'));
     }
 
     public function calendar()

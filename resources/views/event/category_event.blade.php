@@ -87,16 +87,16 @@
                         </div>
                         <div class="row">
                            {{-- <div class="card-body"> --}}
-                             @foreach ($event_categories as $event_category)
+                             @foreach ($vents as $vent)
                              {{-- {{ dd($event_category) }} --}}
                              <div class="card-body col-4 flex-fill bd-highlight">
                                 {{-- カードを入れてみる --}}
                                 <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="{{ asset($event_category -> path) }}" alt="Card image cap">
+                                <img class="card-img-top" src="{{ asset($vent-> path) }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $event_category->title }}</h5>
-                                    <p class="card-text">{{ $event_category->content_summary }}</p>
-                                    <td><a href="{{ route('show', ['id'=>$event_category->id]) }}" class="btn btn-primary">詳細</a></td>
+                                    <h5 class="card-title">{{ $vent->title }}</h5>
+                                    <p class="card-text">{{ $vent->content_summary }}</p>
+                                    <td><a href="{{ route('show', ['id'=>$vent->id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
                                 </div>
                                 </div>
