@@ -25,9 +25,8 @@
                             <br>
                             <a href="/top" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
                             <br>
-                            {{-- {{ dd($categories) }} --}}
                              @foreach ($categories as $category)
-                            <a href="{{ route('categoryEvent', ['id'=>$category->id]) }}" class="card-text d-block text-under-none text-success"><h4>{{ $category->name}}</h4></a>
+                                  <a href="{{ route('categoryEvent', ['id'=>$category->id]) }}" class="card-text d-block text-under-none text-success"><h4>{{ $category->name}}</h4></a>
                             <br>
                             @endforeach
 
@@ -88,16 +87,16 @@
                         </div>
                         <div class="row">
                            {{-- <div class="card-body"> --}}
-                             @foreach ($event_images as $event_image)
+                             @foreach ($event_categories as $event_category)
+                             {{-- {{ dd($event_category) }} --}}
                              <div class="card-body col-4 flex-fill bd-highlight">
-
                                 {{-- カードを入れてみる --}}
                                 <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="{{ asset($event_image -> path) }}" alt="Card image cap">
+                                <img class="card-img-top" src="{{ asset($event_category -> path) }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $event_image->title }}</h5>
-                                    <p class="card-text">{{ $event_image->content_summary }}</p>
-                                    <td><a href="{{ route('show', ['id'=>$event_image->id]) }}" class="btn btn-primary">詳細</a></td>
+                                    <h5 class="card-title">{{ $event_category->title }}</h5>
+                                    <p class="card-text">{{ $event_category->content_summary }}</p>
+                                    <td><a href="{{ route('show', ['id'=>$event_category->id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
                                 </div>
                                 </div>

@@ -35,6 +35,8 @@ Route::post('/store', [HomeController::class, 'store'])->name('store');
 Route::post('/school', [HomeController::class, 'school'])->name('school');
 Route::post('/category', [HomeController::class, 'category'])->name('category');
 Route::get('/show/{id}', [TopController::class, 'show'])->name('show');
+Route::get('/categoryEvent/{id}', [TopController::class, 'categoryEvent'])->name('categoryEvent');
+
 
 
 
