@@ -47,6 +47,8 @@ class TopController extends Controller
         // ->get();
         // dd('$event_images');
         $event_images = DB::table('events') -> join('images','events.image_id','=','images.id')
+                                            // ->join('event_categories','events,id','=','event_categories.event_id')
+
         ->get();
         //dd($event_images);
 
@@ -136,12 +138,13 @@ class TopController extends Controller
 
         $vents =DB::table('events')
             ->join('images', 'images.id', '=', 'events.image_id')
+            ->join('event_categories','event_categories.event_id','=','events.id')
             ->select('events.*', 'images.path')
-            ->where('events.id','=',$id)
+            ->where('event_categories.category_id','=',$id)
             ->whereNull('events.deleted_at')
             ->orderBy('updated_at','DESC')
             ->get();
-        //dd($vents);
+       // dd($vents);
 //このしたらへんは消す予定です。
         // $event_categories = Event::select('events.*','categories.id AS category_id')
         // ->rightJoin('event_images','event_images.event_id','=','events.id')
@@ -158,8 +161,9 @@ class TopController extends Controller
         }
 
 
-        $all_data = $event_categories -> join('images', 'event_categories_id', '=', 'images.id')
-        ->get();
+
+        // $all_data = $event_categories -> join('images', 'event_categories_id', '=', 'images.id')
+        // ->get();
 
         //dd($all_data);
 

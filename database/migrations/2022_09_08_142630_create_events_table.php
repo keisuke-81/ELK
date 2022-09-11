@@ -19,20 +19,20 @@ class CreateEventsTable extends Migration
             $table->unsignedBigInteger('school_id');
             $table->string('image_id');
             $table->datetime('event_day');
-            $table->string('area');
-            $table->integer('target_min_age');
-            $table->integer('target_max_age');
+            $table->string('area')->nullable($value = true);
+            $table->integer('target_min_age')->nullable($value = true);
+            $table->integer('target_max_age')->nullable($value = true);
             $table->longText('content');
-            $table->longText('content_summary');
-            $table->integer('price');
+            $table->longText('content_summary')->nullable($value = true);
+            $table->integer('price')->unsigned()->nullable($value = true);
             $table->boolean('price_free');
             $table->boolean('my_event');
-            $table->string('event_url');
+            $table->string('event_url')->nullable($value = true);
             $table->enum('status',['wait','open','end']);
             $table->softDeletes();
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
-            $table->foreign('school_id')->references('id')->on('schools');
+            $table->foreign('school_id')->references('id')->on('schools')->nullable($value = true);
 
 
 

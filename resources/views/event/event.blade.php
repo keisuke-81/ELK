@@ -44,7 +44,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="">
+            <img src="{{ asset('storage/sample/event2.png') }}">
             <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
@@ -52,7 +52,7 @@
             </div>
              ここに画像がきます
             <div class="carousel-item">
-            <img src="" alt="画像がきます">
+            <img src="{{ asset('storage/sample/event3.png') }}" alt="画像がきます">
 
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
@@ -61,7 +61,7 @@
             </div>
             </div>
             <div class="carousel-item">
-            <img src="">
+            <img src="{{ asset('storage/sample/yamituki.png') }}">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
