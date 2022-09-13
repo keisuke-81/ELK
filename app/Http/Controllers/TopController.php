@@ -15,9 +15,16 @@ use App\Models\EventImage;
 
 
 
+
+
 class TopController extends Controller
 {
     //
+    public function event(){
+        $all_events = Category::find(1)->events;
+        dd($all_events);
+    }
+
      public function top()
     {
 
@@ -25,7 +32,7 @@ class TopController extends Controller
         ->whereNull('deleted_at')
         ->orderBy('id','DESC')
         ->get();
-           //dd($categories);
+        // dd($categories);
 
         $events =DB::table('events')
         ->whereNull('deleted_at')
@@ -45,12 +52,12 @@ class TopController extends Controller
         // ->select('events.id','images.id as image_id','images.path as image_path')
         // ->leftJoin('images','events.image_id','=','images.id')
         // ->get();
-        // dd('$event_images');
+
         $event_images = DB::table('events') -> join('images','events.image_id','=','images.id')
                                             // ->join('event_categories','events,id','=','event_categories.event_id')
 
         ->get();
-        //dd($event_images);
+       // dd($event_images);
 
 
 
@@ -106,6 +113,12 @@ class TopController extends Controller
                 ->orderBy('id', 'DESC')
                 ->get();
         //dd($categories);
+
+        $categories_name =DB::table('categories')
+                        ->where('id','=',$id)
+                        ->orderBy('id', 'DESC')
+                        ->first();
+       // dd($categories_name);
 
 
 
@@ -178,7 +191,7 @@ class TopController extends Controller
 
         //dd($include_category_events);
 
-        return view('event.category_event', compact('events','event_categories','categories','schools','images','vents'));
+        return view('event.category_event', compact('events','event_categories','categories','schools','images','vents','categories_name'));
     }
 
     public function calendar()
@@ -193,6 +206,14 @@ class TopController extends Controller
     //    //dd($tags);
     //    return view('calendar',compact('tags','image'));
     return view('calendar');
+
+
+    }
+
+    public function form()
+    {
+
+    return view('event.event_form');
 
 
     }

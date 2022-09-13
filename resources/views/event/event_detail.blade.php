@@ -35,7 +35,7 @@
                         </div>
                     </div>
 @endsection
-
+ @yield('content4')
 @section('content4')
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -82,7 +82,7 @@
 <div class="card mb-3" style="">
   <div class="row g-0">
     <div class="col-md">
-       
+
       <img src="{{ asset($images -> path) }}">
     </div>
     <div class="col-md">

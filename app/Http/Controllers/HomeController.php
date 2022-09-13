@@ -35,7 +35,7 @@ class HomeController extends Controller
     {
 
          $event = Event::select('event.*');
-        dd($event);
+        //dd($event);
 
         return view('event.event');
         return view('home');

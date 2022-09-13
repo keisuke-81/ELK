@@ -88,6 +88,7 @@
                         </div>
                         <div class="row">
                            {{-- <div class="card-body"> --}}
+                           {{-- {{ dd($event_image) }} --}}
                              @foreach ($event_images as $event_image)
                              <div class="card-body col-4 flex-fill bd-highlight">
 

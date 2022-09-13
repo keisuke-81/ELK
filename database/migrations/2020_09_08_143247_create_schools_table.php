@@ -16,10 +16,10 @@ class CreateSchoolsTable extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->unsignedBigInteger('id', true);
             $table->string('school_name');
-            $table->string('school_url');
+            $table->string('school_url')->nullable($value = true);
             $table->string('school_address');
             $table->longText('about');
-            $table->integer('school_tel');
+            $table->integer('school_tel')->nullable($value = true);
             $table->softDeletes();
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));

@@ -64,40 +64,10 @@
         <main>
             <div class="container j-font">
             <div class="row">
-             <div class="col-md-2 p-0">
+             <div class="col-md-12 p-0">
 
-                    @yield('category')
-
+                    @yield('form')
                 </div>
-            <div class="col-md-10 p-0">
-
-                <div class="card">
-                        <div class="card-header">
-                            <h4> <span class="fw-bold">E.L.K</span> トピック</h4>
-
-                        </div>
-
-                        <div class="card-body row flex-fill ">
-                        <div class="btn-group-vertical  col-4 ">
-                        <a href="#" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>E.L.Kのイベント</h4></a>
-                        <a href="/calendar" class="btn btn-outline-primary  " tabindex="-1" role="button" aria-disabled="true"><h4>イベントカレンダー</h4></a>
-                        <a href="#" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>無料イベント</h4></a>
-                        <a href="#" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>有料イベント</h4></a>
-
-                        </div>
-
-                    <div class="col-8">
-
-                    @yield('content4')
-                    </div>
-<button></button>
-                    </div>
-
-                </div>
-
-                    @yield('content3')
-
-            </div>
 
         </div>
 
