@@ -106,7 +106,7 @@
   <div class="card-body font-regu">
 
     <h5 class="card-title">(イベント内容)</h5>
-    <p class="card-text">{{ $events->content }}</p>
+    <p class="card-text space-text">{{ $events->content }}</p>
   </div>
   <ul class="list-group list-group-flush font-regu">
     <li class="list-group-item">(イベントカテゴリ)<p>{{ $events->title }}</p></li>

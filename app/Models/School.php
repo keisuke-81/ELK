@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
 {
-    use HasFactory;
+    public function events(){
+        return $this->hasMany('App\Models\Event');
+    }
 }

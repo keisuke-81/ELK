@@ -43,7 +43,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="{{ asset('storage/sample/event2.png') }}">
+            <img src="">
             <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
@@ -51,7 +51,7 @@
             </div>
              ここに画像がきます
             <div class="carousel-item">
-            <img src="{{ asset('storage/sample/event3.png') }}" alt="画像がきます">
+            <img src="" alt="画像がきます">
 
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
@@ -60,7 +60,7 @@
             </div>
             </div>
             <div class="carousel-item">
-            <img src="{{ asset('storage/sample/yamituki.png') }}">
+            <img src="">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
@@ -89,6 +89,7 @@
                         <div class="row">
                            {{-- <div class="card-body"> --}}
                              @foreach ($vents as $vent)
+                             {{-- {{ dd($vent) }} --}}
                              {{-- {{ dd($event_category) }} --}}
                              <div class="card-body col-4 flex-fill bd-highlight">
                                 {{-- カードを入れてみる --}}
@@ -97,7 +98,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $vent->title }}</h5>
                                     <p class="card-text">{{ $vent->content_summary }}</p>
-                                    <td><a href="{{ route('show', ['id'=>$vent->id]) }}" class="btn btn-primary">詳細</a></td>
+                                    <td><a href="{{ route('show', ['id'=>$vent->event_id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
                                 </div>
                                 </div>

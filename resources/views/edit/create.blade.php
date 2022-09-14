@@ -68,11 +68,11 @@
                 <input type="text" name="status" class="form-control" id="inputAddress2" value="0" placeholder="">
             </div>
             <div class="col-12">
-                <textarea name="content" id="" cols="100" rows="10" placeholder="イベント内容"></textarea>
+                <textarea id="body" name="content" rows="8" cols="40" placeholder="イベント内容"></textarea>
 
             </div>
             <div class="col-12">
-                <textarea name="content_summary" id="" cols="100" rows="10" placeholder="イベント内容要約"></textarea>
+                <textarea id="body"  name="content_summary" cols="100" rows="10" placeholder="イベント内容要約"></textarea>
 
             </div>
 
@@ -147,6 +147,14 @@
     </d iv>
     </div>
 </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function(){
+        var simplemde = new SimpleMDE({ element: document.getElementById("body") });
+    });
+</script>
 </body>
 </html>
 @endsection

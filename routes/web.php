@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\EventController;
+
 
 
 
@@ -25,6 +27,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/event/index', [App\Http\Controllers\EventController::class, 'event'])->name('event');
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/top', [TopController::class, 'top'])->name('top');
