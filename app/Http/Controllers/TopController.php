@@ -48,11 +48,27 @@ class TopController extends Controller
 
     }
 
+    // public function eventDetail($id)
+    // {
+    //     //ここでメモデータを取得
+    // //    $image = new Image();
 
+    // //    $tags = Tag::where('user_id','=',\Auth::id())->whereNull('deleted_at')->orderBy('id','DESC')
+    // //    ->get();
+    //    //dd($tags);
+    //   // return view('event_detail',compact('tags','image'));
+
+
+    //   return view('event.event_detail',compact('event'));
+
+    // }
     public function show($id)
     {
 
-        $school_name = Event::join('schools','events.school_id','=','schools.id')
+        // $events = Event::find($id)
+        // -> join('schools','events.school_id','=','schools.id');
+        //dd($events);
+        $school_name = Event:: join('schools','events.school_id','=','schools.id')
         ->join('images','events.image_id','=','images.id')
         ->join('event_categories','events.id','=','event_categories.event_id')
         ->join('categories','event_categories.category_id','=','categories.id')
@@ -60,22 +76,56 @@ class TopController extends Controller
         ->where('events.id',$id)
         ->first();
         //dd($school_name);
+        // $schools = School::where('id',$events->school_id)
+        //         ->first();
+        // $images = Image::where('id', $events->image_id)
+        //         ->first();
+
+
+        //dd($schools);
 
         return view('event.event_detail', compact('school_name'));
     }
 
     public function categoryEvent($id)
     {
+       // dd($id);
+        // $events = Event::select('event.*')
+        // ->whereNull('deleted_at')
+        // ->orderBy('updated_at','DESC')
+        // ->get();
 
-        $categories =Category::whereNull('deleted_at')
+        $categories =DB::table('categories')
+                ->whereNull('deleted_at')
                 ->orderBy('id', 'DESC')
                 ->get();
         //dd($categories);
 
-        $categories_name =Category::where('id','=',$id)
+        $categories_name =DB::table('categories')
+                        ->where('id','=',$id)
                         ->orderBy('id', 'DESC')
                         ->first();
        // dd($categories_name);
+
+
+
+        $schools =DB::table('schools')
+        ->whereNull('deleted_at')
+        ->orderBy('id', 'DESC')
+        ->get();
+
+
+        $events =DB::table('events')
+        ->whereNull('deleted_at')
+        ->orderBy('id', 'DESC')
+        ->get();
+
+        $images =DB::table('images')
+        ->orderBy('id', 'DESC')
+        ->get();
+
+
+        //dd($events);
 
         $event_categories = Event::select('events.*','categories.id AS category_id')
         ->leftJoin('event_categories','event_categories.event_id','=','events.id')
@@ -103,13 +153,37 @@ class TopController extends Controller
         }
 
 
-        return view('event.category_event', compact('categories','vents','categories_name'));
+
+        // $all_data = $event_categories -> join('images', 'event_categories_id', '=', 'images.id')
+        // ->get();
+
+        //dd($all_data);
+
+
+
+       // $events = Event::find($id);
+        // $schools = School::where('id',$events->school_id)
+        //         ->first();
+        // $images = Image::where('id', $events->image_id)
+                 //->first();
+
+
+        //dd($include_category_events);
+
+        return view('event.category_event', compact('events','event_categories','categories','schools','images','vents','categories_name'));
     }
 
     public function calendar()
     {
         //ここでメモデータを取得
 
+       // dd($memos);
+    //    $image = new Image();
+
+    //    $tags = Tag::where('user_id','=',\Auth::id())->whereNull('deleted_at')->orderBy('id','DESC')
+    //    ->get();
+    //    //dd($tags);
+    //    return view('calendar',compact('tags','image'));
     return view('calendar');
 
 
