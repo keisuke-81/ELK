@@ -23,7 +23,7 @@
 
                             <br>
                             <br>
-                            <a href="/top" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
+                            <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
                             <br>
                              @foreach ($categories as $category)
                                   <a href="{{ route('categoryEvent', ['id'=>$category->id]) }}" class="card-text d-block text-under-none text-success"><h4>{{ $category->name}}</h4></a>
@@ -56,7 +56,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
-
+                 <a href="" class="btn btn-primary">Go somewhere</a>
             </div>
             </div>
             <div class="carousel-item">

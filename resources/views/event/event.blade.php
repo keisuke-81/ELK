@@ -23,7 +23,7 @@
 
                             <br>
                             <br>
-                            <a href="/top" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
+                            <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
                             <br>
                             {{-- {{ dd($categories) }} --}}
                              @foreach ($categories as $category)
@@ -68,7 +68,7 @@
             </div>
             </div>
         </div>
-        
+
         </div>
 @endsection
 
@@ -81,7 +81,7 @@
                         </div>
                         <div class="row">
                            {{-- <div class="card-body"> --}}
-                           {{-- {{ dd($event_image) }} --}}
+                           {{-- {{ dd($event_images) }} --}}
                              @foreach ($event_images as $event_image)
                              <div class="card-body col-4 flex-fill bd-highlight">
 
@@ -90,6 +90,9 @@
                                 <img class="card-img-top" src="{{ asset($event_image -> path) }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event_image->title }}</h5>
+                                    <p>イベント日程：{{ $event_image->event_day }}</p>
+                                    <p>イベント料金：{{ $event_image->price }}円</p>
+                                    <p>対象年齢：{{ $event_image->target_min_age }}歳〜{{ $event_image->target_max_age }}歳</p>
                                     <p class="card-text">{{ $event_image->content_summary }}</p>
                                     <td><a href="{{ route('show', ['id'=>$event_image->id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}

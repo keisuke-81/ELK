@@ -24,7 +24,7 @@
 
                             <br>
                             <br>
-                            <a href="/top" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
+                            <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
                             <br>
                              {{-- @foreach ($tags as $tag)
                             <a href="/top/?tag_abe={{ $tag['id'] }}" class="card-text d-block text-under-none text-success"><h4>{{ $tag['name'] }}</h4></a>
@@ -35,7 +35,6 @@
                         </div>
                     </div>
 @endsection
- @yield('content4')
 @section('content4')
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -79,47 +78,48 @@
 @section('content3')
 {{-- {{ dd($events) }} --}}
 {{-- {{ dd($images) }} --}}
+{{-- {{ dd($school_name) }} --}}
 <div class="card mb-3" style="">
   <div class="row g-0">
     <div class="col-md">
 
-      <img src="{{ asset($images -> path) }}">
+      <img src="{{ asset($school_name ->path) }}">
     </div>
     <div class="col-md">
       <div class="">
         <h3 class="card-title">＜イベントタイトル＞</h3>
-        <p class="font-regu2">{{ $events->title }}</p>
+        <p class="font-regu2">{{ $school_name->title }}</p>
         <ul class="font-regu ">
           <li>イベント日時：</li>
-          <p>{{ $events->title }}</p>
+          <p>{{ $school_name->event_day }}</p>
           <li>対象年齢</li>
-          <p>{{ $events->title }}</p>
+          <p>{{ $school_name->target_min_age }}歳〜{{ $school_name->target_max_age }}歳</p>
           <li>イベント運営会社</li>
-          <p>{{ $events->title }}</p>
-          <li>{{ $events->title }}</li>
+          <p>{{ $school_name->school_name }}</p>
+
         </ul>
 
       </div>
     </div>
   </div>
-{{-- {{ dd($schools->id) }} --}}
+
   <div class="card-body font-regu">
 
     <h5 class="card-title">(イベント内容)</h5>
-    <p class="card-text space-text">{{ $events->content }}</p>
+    <p class="card-text space-text">{{ $school_name->content }}</p>
   </div>
   <ul class="list-group list-group-flush font-regu">
-    <li class="list-group-item">(イベントカテゴリ)<p>{{ $events->title }}</p></li>
-    <li class="list-group-item">(主催者（スクール名）)<p>{{ $schools->school_name }}</p></li>
+    <li class="list-group-item">(イベントカテゴリ)<p>{{ $school_name->name }}</p></li>
+    <li class="list-group-item">(主催者（スクール名）)<p>{{ $school_name->school_name }}</p></li>
     <li class="list-group-item">(スクールについて)
-        <p>{{ $schools->about }}</p>
-        <p><a href="{{ $schools->school_url }}">イベントの公式サイトへ(外部リンク)</a></p></li>
-    <li class="list-group-item">(スクール住所)<p>{{ $schools->school_address }}</p></li>
+        <p>{{ $school_name->about }}</p>
+        <p><a href="{{ $school_name->school_url }}">イベントの公式サイトへ(外部リンク)</a></p></li>
+    <li class="list-group-item">(スクール住所)<p>{{ $school_name->school_address }}</p></li>
 
-    <li class="list-group-item">(スクール連絡先)<p>{{ $schools->tel }}</p></li>
+    <li class="list-group-item">(スクール連絡先)<p>{{ $school_name->school_tel }}</p></li>
   </ul>
   <div class="card-body">
-    <button type="button" onclick="{{ $events->event_url }}" class="btn btn-primary btn-lg">お申込みへ(外部リンク)</button>
+    <button type="button" onclick="{{ $school_name->event_url }}" class="btn btn-primary btn-lg">お申込みへ(外部リンク)</button>
   </div>
 </div>
 

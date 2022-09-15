@@ -54,7 +54,7 @@ class TopController extends Controller
         // ->get();
 
         $event_images = DB::table('events') -> join('images','events.image_id','=','images.id')
-                                            // ->join('event_categories','events,id','=','event_categories.event_id')
+                                  //           ->join('event_categories','events,id','=','event_categories.event_id')
 
         ->get();
        // dd($event_images);
@@ -87,17 +87,27 @@ class TopController extends Controller
     public function show($id)
     {
 
-        $events = Event::find($id);
+        // $events = Event::find($id)
+        // -> join('schools','events.school_id','=','schools.id');
         //dd($events);
-        $schools = School::where('id',$events->school_id)
-                ->first();
-        $images = Image::where('id', $events->image_id)
-                ->first();
+        $school_name = DB::table('events')
+        -> join('schools','events.school_id','=','schools.id')
+        ->join('images','events.image_id','=','images.id')
+        ->join('event_categories','events.id','=','event_categories.event_id')
+        ->join('categories','event_categories.category_id','=','categories.id')
+
+        ->where('events.id',$id)
+        ->first();
+        //dd($school_name);
+        // $schools = School::where('id',$events->school_id)
+        //         ->first();
+        // $images = Image::where('id', $events->image_id)
+        //         ->first();
 
 
-       // dd($school);
+        //dd($schools);
 
-        return view('event.event_detail', compact('events','schools','images'));
+        return view('event.event_detail', compact('school_name'));
     }
 
     public function categoryEvent($id)
