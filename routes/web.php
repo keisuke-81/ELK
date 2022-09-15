@@ -32,7 +32,7 @@ Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->nam
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/top', [TopController::class, 'top'])->name('top');
 Route::get('/eventDetail', [TopController::class, 'eventDetail'])->name('eventDetail');
-Route::get('calendar', [TopController::class, 'calendar'])->name('calendar');
+Route::get('/calendar', [TopController::class, 'calendar'])->name('calendar');
 Route::post('/upload', [ImageController::class, 'upload'])->name('upload');
 Route::post('/store', [HomeController::class, 'store'])->name('store');
 Route::post('/school', [HomeController::class, 'school'])->name('school');

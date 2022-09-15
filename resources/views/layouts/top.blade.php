@@ -79,9 +79,9 @@
 
                         <div class="card-body row flex-fill ">
                         <div class="btn-group-vertical  col-4 ">
-                        <a href="#" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>E.L.Kのイベント</h4></a>
-                        <a href="calendar" class="btn btn-outline-primary  " tabindex="-1" role="button" aria-disabled="true"><h4>イベントカレンダー</h4></a>
-                        <a href="#" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>無料イベント</h4></a>
+                        <a href="calendar" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>E.L.Kのイベント</h4></a>
+                        <a href="/ELK/calendar" class="btn btn-outline-primary  " tabindex="-1" role="button" aria-disabled="true"><h4>イベントカレンダー</h4></a>
+                        <a href="/calendar" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>無料イベント</h4></a>
                         <a href="#" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>有料イベント</h4></a>
 
                         </div>
