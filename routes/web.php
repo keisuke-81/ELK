@@ -40,6 +40,8 @@ Route::post('/category', [HomeController::class, 'category'])->name('category');
 Route::get('/show/{id}', [TopController::class, 'show'])->name('show');
 Route::get('/categoryEvent/{id}', [TopController::class, 'categoryEvent'])->name('categoryEvent');
 Route::get('/form', [TopController::class, 'form'])->name('form');
+Route::get('/elkevent', [TopController::class, 'elkevent'])->name('elkevent');
+
 
 
 
