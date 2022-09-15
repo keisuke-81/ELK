@@ -56,7 +56,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
-
+                 <a href="" class="btn btn-primary">Go somewhere</a>
             </div>
             </div>
             <div class="carousel-item">

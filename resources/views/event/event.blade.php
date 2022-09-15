@@ -23,7 +23,7 @@
 
                             <br>
                             <br>
-                            <a href="/top" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
+                            <a href="top" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
                             <br>
                             {{-- {{ dd($categories) }} --}}
                              @foreach ($categories as $category)
@@ -68,7 +68,7 @@
             </div>
             </div>
         </div>
-        
+
         </div>
 @endsection
 
