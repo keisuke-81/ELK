@@ -76,7 +76,7 @@
         </div>
 @endsection
 @section('content3')
-{{-- {{ dd($events) }} --}}
+{{-- {{ dd($event) }} --}}
 {{-- {{ dd($images) }} --}}
 {{-- {{ dd($school_name) }} --}}
 <div class="card mb-3" style="">
@@ -91,8 +91,8 @@
         <p class="font-regu2">{{ $school_name->title }}</p>
         <ul class="font-regu ">
           <li>イベント日時：</li>
-          <p>@isset($event_image->event_day)
-            <span>{{ $event_image->event_day->format('Y/m/d') }}</span>
+          <p>@isset($school_name->event_day)
+            <span>{{ $school_name->event_day->format('Y/m/d') }}</span>
             @endisset</p>
           <li>対象年齢</li>
           <p>{{ $school_name->target_min_age }}歳〜{{ $school_name->target_max_age }}歳</p>
@@ -121,7 +121,7 @@
     <li class="list-group-item">(スクール連絡先)<p>{{ $school_name->school_tel }}</p></li>
   </ul>
   <div class="card-body">
-    <button type="button" onclick="{{ $school_name->event_url }}" class="btn btn-primary btn-lg">お申込みへ(外部リンク)</button>
+    <button type="button" onclick="location.href='{{ $school_name->event_url }}'" class="btn btn-primary btn-lg">お申込みへ(外部リンク)</button>
   </div>
 </div>
 
