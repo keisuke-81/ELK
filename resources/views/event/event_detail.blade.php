@@ -91,7 +91,9 @@
         <p class="font-regu2">{{ $school_name->title }}</p>
         <ul class="font-regu ">
           <li>イベント日時：</li>
-          <p>{{ $school_name->event_day }}</p>
+          <p>@isset($event_image->event_day)
+            <span>{{ $event_image->event_day->format('Y/m/d') }}</span>
+            @endisset</p>
           <li>対象年齢</li>
           <p>{{ $school_name->target_min_age }}歳〜{{ $school_name->target_max_age }}歳</p>
           <li>イベント運営会社</li>

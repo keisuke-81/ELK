@@ -1,4 +1,4 @@
-@extends('top','calendar')
+@extends('top')
 
 @section('category')
 <div class="card">
