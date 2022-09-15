@@ -6,7 +6,7 @@
         <div class="card mb-3 " style="">
         <div class="row g-0 ">
             <div class="col-md">
-            <form method="POST" action="/upload" enctype="multipart/form-data">
+            <form method="POST" action="upload" enctype="multipart/form-data">
                 @csrf
                 <input type="file" name="image">
                 <button>アップロード</button>
