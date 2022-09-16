@@ -9,6 +9,8 @@ use App\Models\Event;
 class EventController extends Controller
 {
     //
+    
+
     public function event(){
         $event_it = School::find(1) -> events;
         $event_name =School::find(1)->events;

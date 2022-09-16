@@ -23,8 +23,13 @@ class TopController extends Controller
 {
     //
     public function event(){
+
+        $school = new School();
+        dd($school);
         $all_events = Category::find(1)->events;
-        dd($all_events);
+        //dd($all_events);
+        $event = new Event();
+       // dd($event);
     }
 
      public function top()
@@ -34,40 +39,25 @@ class TopController extends Controller
        $categories =Category::whereNull('deleted_at')
         ->orderBy('id','DESC')
         ->get();
-        // dd($categories);
+
 
          $event_images = Event::join('images','events.image_id','=','images.id')
             ->whereNull('deleted_at')
+            ->where('status', '=', 'open')
             ->orderBy('event_day','DESC')
             ->get();                      //
 
 
-       // dd($event_images);
+
 
         return view('event.event',compact('categories','event_images'));
 
     }
 
-    // public function eventDetail($id)
-    // {
-    //     //ここでメモデータを取得
-    // //    $image = new Image();
-
-    // //    $tags = Tag::where('user_id','=',\Auth::id())->whereNull('deleted_at')->orderBy('id','DESC')
-    // //    ->get();
-    //    //dd($tags);
-    //   // return view('event_detail',compact('tags','image'));
-
-
-    //   return view('event.event_detail',compact('event'));
-
-    // }
     public function show($id)
     {
 
-        // $events = Event::find($id)
-        // -> join('schools','events.school_id','=','schools.id');
-        //dd($events);
+
         $school_name = Event:: join('schools','events.school_id','=','schools.id')
         ->join('images','events.image_id','=','images.id')
         ->join('event_categories','events.id','=','event_categories.event_id')
@@ -75,25 +65,14 @@ class TopController extends Controller
 
         ->where('events.id',$id)
         ->first();
-        //dd($school_name);
-        // $schools = School::where('id',$events->school_id)
-        //         ->first();
-        // $images = Image::where('id', $events->image_id)
-        //         ->first();
 
-
-        //dd($schools);
 
         return view('event.event_detail', compact('school_name'));
     }
 
     public function categoryEvent($id)
     {
-       // dd($id);
-        // $events = Event::select('event.*')
-        // ->whereNull('deleted_at')
-        // ->orderBy('updated_at','DESC')
-        // ->get();
+
 
         $categories =DB::table('categories')
                 ->whereNull('deleted_at')
@@ -140,6 +119,7 @@ class TopController extends Controller
         $vents =Event::join('images', 'images.id', '=', 'events.image_id')
             ->join('event_categories','event_categories.event_id','=','events.id')
             ->select('events.*', 'images.path','event_id')
+            ->where('status', '=', 'open')
             ->where('event_categories.category_id','=',$id)
             ->whereNull('events.deleted_at')
             ->orderBy('updated_at','DESC')
@@ -153,37 +133,12 @@ class TopController extends Controller
         }
 
 
-
-        // $all_data = $event_categories -> join('images', 'event_categories_id', '=', 'images.id')
-        // ->get();
-
-        //dd($all_data);
-
-
-
-       // $events = Event::find($id);
-        // $schools = School::where('id',$events->school_id)
-        //         ->first();
-        // $images = Image::where('id', $events->image_id)
-                 //->first();
-
-
-        //dd($include_category_events);
-
         return view('event.category_event', compact('events','event_categories','categories','schools','images','vents','categories_name'));
     }
 
     public function calendar()
     {
-        //ここでメモデータを取得
 
-       // dd($memos);
-    //    $image = new Image();
-
-    //    $tags = Tag::where('user_id','=',\Auth::id())->whereNull('deleted_at')->orderBy('id','DESC')
-    //    ->get();
-    //    //dd($tags);
-    //    return view('calendar',compact('tags','image'));
     return view('calendar');
 
 
@@ -201,13 +156,10 @@ class TopController extends Controller
     {
 
 
-          // $event_images = DB::table('events') -> join('images', 'events.image_id', '=', 'images.id')
-        //                                     ->where('my_event', 1)
-        //                                     ->get();
-
 
         $event_images = Event::join('images', 'events.image_id', '=', 'images.id')
                                                     ->where('my_event', 1)
+                                                    ->where('status', '=', 'open')
                                                       ->get();
 
         //dd($event_images);
