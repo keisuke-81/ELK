@@ -81,9 +81,9 @@
 {{-- {{ dd($school_name) }} --}}
 <div class="card mb-3" style="">
   <div class="row g-0">
-    <div class="col-md">
+    <div class="col-md" style="width: 18rem;">
 
-      <img src="{{ asset($school_name ->path) }}">
+      <img src="{{ asset($school_name ->path) }}"  width="100%">
     </div>
     <div class="col-md">
       <div class="">
