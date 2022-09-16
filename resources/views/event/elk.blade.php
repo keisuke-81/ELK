@@ -62,7 +62,7 @@
                                     <p>イベント料金：{{ $event_image->price }}円</p>
                                     <p>対象年齢：{{ $event_image->target_min_age }}歳〜{{ $event_image->target_max_age }}歳</p>
                                     <p class="card-text">{{ $event_image->content_summary }}</p>
-                                    <td><a href="{{ route('show', ['id'=>$event_image->id]) }}" class="btn btn-primary">詳細</a></td>
+                                    <td><a href="{{ route('myshow', ['id'=>$event_image->id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
                                 </div>
                                 </div>

@@ -96,7 +96,7 @@
                 </div>
 
                     @yield('content3')
-
+                    @yield('form')
             </div>
 
         </div>

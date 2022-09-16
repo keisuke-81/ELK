@@ -82,7 +82,7 @@
 </div>
 
   </div>
-  <button type="submit" class="btn btn-primary" >Submit</button>
+  <button type="button" onclick="location.href='{{ $school_name->event_url }}'" class="btn btn-primary btn-lg">お申込みへ</button>
 </form>
 </div>
 @endsection
