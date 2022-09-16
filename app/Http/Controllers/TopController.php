@@ -49,7 +49,6 @@ class TopController extends Controller
 
 
 
-
         return view('event.event',compact('categories','event_images'));
 
     }
@@ -144,13 +143,7 @@ class TopController extends Controller
 
     }
 
-    public function form()
-    {
 
-    return view('event.event_form');
-
-
-    }
 
       public function elkevent()
     {

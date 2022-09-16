@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('index');
 Route::get('/event/index', [App\Http\Controllers\EventController::class, 'event'])->name('event');
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -39,8 +39,12 @@ Route::post('/school', [HomeController::class, 'school'])->name('school');
 Route::post('/category', [HomeController::class, 'category'])->name('category');
 Route::get('/show/{id}', [TopController::class, 'show'])->name('show');
 Route::get('/categoryEvent/{id}', [TopController::class, 'categoryEvent'])->name('categoryEvent');
-Route::get('/form', [TopController::class, 'form'])->name('form');
+Route::get('/form', [EventController::class, 'form'])->name('form');
 Route::get('/elkevent', [TopController::class, 'elkevent'])->name('elkevent');
+Route::get('/myshow/{id}', [EventController::class, 'myshow'])->name('myshow');
+
+
+
 
 
 
