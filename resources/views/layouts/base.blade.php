@@ -66,7 +66,7 @@
             <div class="row">
              <div class="col-md-12 p-0">
 
-                    @yield('form')
+                    @yield('calendar')
                 </div>
 
         </div>

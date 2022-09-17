@@ -34,6 +34,14 @@
                     </div>
 @endsection
 @section('content4')
+<form action="POST">
+    <div class="input-group input-group-lg">
+  <span class="input-group-text" id="inputGroup-sizing-lg">日付で検索</span>
+  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+    <button type="button" class="btn btn-primary">serch</button>
+    </div>
+</form>
+
 <html>
 <body>
     <div id='calendar'></div>

@@ -57,6 +57,26 @@
                     <!-- Right Side Of Navbar -->
 
                 </div>
+                <div class=" w-50 pe-3">
+                    <form action="POST">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text" id="inputGroup-sizing-lg">サイト内検索</span>
+                            <input class="form-control bg-white form-select-lg" list="datalistOptions" id="exampleDataList" placeholder="興味のあることは何ですか？">
+                            <datalist id="datalistOptions">
+
+                            <option value="スポーツ">
+                            <option value="New York">
+                            <option value="Seattle">
+                            <option value="Los Angeles">
+                            <option value="Chicago">
+                            </datalist>
+                            <button type="button" class="btn btn-primary">serch</button>
+                        </div>
+                    </form>
+
+
+
+                </div>
 
         </nav>
         </div>

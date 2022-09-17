@@ -128,7 +128,7 @@
              <form method="POST" action="{{ route('category') }}" class="row g-3 bg-warning">
                  @csrf
                 <div class="col-md-6">
-            <div class="col-12"><h2>イベントカテゴリ</h2></div>
+            <div class="col-12"><h2>カテゴリ名前</h2></div>
 
                 <label for="inputEmail4" class="form-label">name</label>
                 <input type="name" name="name" class="form-control" id="inputEmail4">
@@ -138,10 +138,10 @@
                 <button type="submit" class="btn btn-primary">データ送信</button>
             </div>
             </form>
-            <form method="POST" action="{{ route('eventCategory') }}" class="row g-3 bg-danger">
+            <form method="POST" action="{{ route('eventCategory') }}" class="row g-3 bg-secondary">
                  @csrf
                 <div class="col-md-6">
-            <div class="col-12"><h2>イベントカテゴリ</h2></div>
+            <div class="col-12"><h2>イベントカテゴリ連結</h2></div>
 
                 <label for="inputEmail4" class="form-label">event_id</label>
                 <input type="number" name="event_id" class="form-control" id="inputEmail4">
