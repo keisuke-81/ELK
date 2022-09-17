@@ -5,6 +5,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventCategory;
+
+
+
 
 
 
@@ -37,6 +41,7 @@ Route::post('/upload', [ImageController::class, 'upload'])->name('upload');
 Route::post('/store', [HomeController::class, 'store'])->name('store');
 Route::post('/school', [HomeController::class, 'school'])->name('school');
 Route::post('/category', [HomeController::class, 'category'])->name('category');
+Route::post('/eventCategory', [HomeController::class, 'eventCategory'])->name('eventCategory');
 Route::get('/show/{id}', [TopController::class, 'show'])->name('show');
 Route::get('/categoryEvent/{id}', [TopController::class, 'categoryEvent'])->name('categoryEvent');
 Route::get('/form', [EventController::class, 'form'])->name('form');

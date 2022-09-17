@@ -30,6 +30,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '1',
         'my_event' => '1',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -46,6 +47,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '1',
         'my_event' => '1',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -62,6 +64,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '0',
         'my_event' => '1',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -78,6 +81,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '0',
         'my_event' => '0',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -94,6 +98,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '0',
         'my_event' => '0',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -110,6 +115,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '1',
         'my_event' => '0',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
     ],
@@ -126,6 +132,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '1',
         'my_event' => '1',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -142,6 +149,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '1',
         'my_event' => '1',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -158,6 +166,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '0',
         'my_event' => '1',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -174,6 +183,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '0',
         'my_event' => '0',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -190,6 +200,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '0',
         'my_event' => '0',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -206,6 +217,7 @@ class EventsTableSeeder extends Seeder
         'price_free' => '1',
         'my_event' => '0',
         'event_url' => 'http://localhost/',
+        'calendar_url' => 'http://localhost/',
         'status' => '0',
 
     ],

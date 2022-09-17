@@ -8,6 +8,8 @@ use App\Models\School;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\EventImage;
+use App\Models\EventCategory;
+
 
 
 use DB;
@@ -54,7 +56,7 @@ class HomeController extends Controller
        //dd($posts);
         // $key = $request->id;
         // dd($key);
-        Event::insert(['content' => $posts['content'],'content_summary' => $posts['content_summary'],'title' => $posts['title'],'event_day' => $posts['event_day'],'target_min_age' => $posts['target_min_age'],'target_max_age' => $posts['target_max_age'],'school_id' => $posts['school_id'],'image_id' => $posts['image_id'],'area' => $posts['area'],'my_event' => $posts['my_event'],'price_free' => $posts['price_free'], 'price' => $posts['price'],'event_url' => $posts['event_url'],'status' => $posts['status']]);
+        Event::insert(['content' => $posts['content'],'content_summary' => $posts['content_summary'],'title' => $posts['title'],'event_day' => $posts['event_day'],'target_min_age' => $posts['target_min_age'],'target_max_age' => $posts['target_max_age'],'school_id' => $posts['school_id'],'image_id' => $posts['image_id'],'area' => $posts['area'],'my_event' => $posts['my_event'],'price_free' => $posts['price_free'], 'price' => $posts['price'],'event_url' => $posts['event_url'],'calendar_url' => $posts['calendar_url'],'status' => $posts['status']]);
        //もし他のテーブルにもデータを送る場合下の記述で入ります。
         // EventImage::insert(['image_id' => $posts['school_id'],'event_id' => $posts['_token']]);
         return redirect('admin');
@@ -81,6 +83,18 @@ class HomeController extends Controller
        // $request->validate(['content' => 'required' ]);
 
         Category::insert(['name' => $posts['name']]);
+
+        return redirect('admin');
+
+
+    }
+    public function eventCategory(Request $request)
+    {
+        ($request);
+        $posts = $request->all();
+       // $request->validate(['content' => 'required' ]);
+
+        EventCategory::insert(['event_id' => $posts['event_id'],'category_id' => $posts['category_id']]);
 
         return redirect('admin');
 

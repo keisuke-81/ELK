@@ -64,6 +64,10 @@
                 <input type="url" name="event_url" class="form-control" id="inputAddress2" placeholder="">
             </div>
             <div class="col-6">
+                <label for="inputAddress2" class="form-label">calendarUrl</label>
+                <input type="url" name="calendar_url" class="form-control" id="inputAddress2" placeholder="">
+            </div>
+            <div class="col-6">
                 <label for="inputAddress2" class="form-label">status wait=0 deploy=1 end=2</label>
                 <input type="text" name="status" class="form-control" id="inputAddress2" value="0" placeholder="">
             </div>
@@ -128,6 +132,21 @@
 
                 <label for="inputEmail4" class="form-label">name</label>
                 <input type="name" name="name" class="form-control" id="inputEmail4">
+                </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">データ送信</button>
+            </div>
+            </form>
+            <form method="POST" action="{{ route('eventCategory') }}" class="row g-3 bg-danger">
+                 @csrf
+                <div class="col-md-6">
+            <div class="col-12"><h2>イベントカテゴリ</h2></div>
+
+                <label for="inputEmail4" class="form-label">event_id</label>
+                <input type="number" name="event_id" class="form-control" id="inputEmail4">
+                 <label for="inputEmail4" class="form-label">category_id</label>
+                <input type="number" name="category_id" class="form-control" id="inputEmail4">
                 </div>
 
             <div class="col-12">

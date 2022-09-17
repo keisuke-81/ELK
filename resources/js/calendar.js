@@ -11,6 +11,7 @@ let calendar = new Calendar(calendarEl, {
         center: "title",
         right: "",
     },
+    
 });
 calendar.render();
 
