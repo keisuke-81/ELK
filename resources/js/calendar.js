@@ -13,3 +13,4 @@ let calendar = new Calendar(calendarEl, {
     },
 });
 calendar.render();
+

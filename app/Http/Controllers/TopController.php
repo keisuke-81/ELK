@@ -46,8 +46,14 @@ class TopController extends Controller
             ->where('status', '=', 'open')
             ->orderBy('event_day','DESC')
             ->get();                      //
-
-
+        //dd($event_images);
+        $count = DB::table('event_categories')
+        ->join('events','event_categories.event_id','events.id')
+       // ->where('event_day','=','2022-09-15 00:00:00')
+        ->where('category_id','=','3')
+        ->where('status', '=', 'open')
+        ->count();
+        dd($count);
 
         return view('event.event',compact('categories','event_images'));
 
@@ -97,6 +103,7 @@ class TopController extends Controller
         ->whereNull('deleted_at')
         ->orderBy('id', 'DESC')
         ->get();
+
 
         $images =DB::table('images')
         ->orderBy('id', 'DESC')
