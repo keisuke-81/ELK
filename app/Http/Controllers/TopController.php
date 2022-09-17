@@ -53,7 +53,7 @@ class TopController extends Controller
         ->where('category_id','=','3')
         ->where('status', '=', 'open')
         ->count();
-        dd($count);
+        //dd($count);
 
         return view('event.event',compact('categories','event_images'));
 
