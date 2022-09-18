@@ -42,7 +42,18 @@ class EventController extends Controller
              ->orWhere('school_name','like' ,"%$goodword%")
              ->orWhere('about','like' ,"%$goodword%")
             ->get();
-           // dd($event);
+            //dd($event);
+
+    }
+
+    public function daySearch(Request $request){
+        $day = $request->all();
+        //dd($word);
+        $good_day = implode( $day  );
+        $event_day = Event::where('event_day','like' ,"%$good_day%")
+            ->join('schools','events.school_id','=','schools.id')
+            ->get();
+            //dd($event_day);
 
     }
 

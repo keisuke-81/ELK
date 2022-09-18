@@ -48,6 +48,8 @@ Route::get('/form', [EventController::class, 'form'])->name('form');
 Route::get('/elkevent', [TopController::class, 'elkevent'])->name('elkevent');
 Route::get('/myshow/{id}', [EventController::class, 'myshow'])->name('myshow');
 Route::get('/search', [EventController::class, 'search'])->name('search');
+Route::get('/daySearch', [EventController::class, 'daySearch'])->name('daySearch');
+
 
 
 
