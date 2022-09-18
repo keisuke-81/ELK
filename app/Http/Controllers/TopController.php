@@ -22,6 +22,19 @@ use Carbon\Carbon;
 class TopController extends Controller
 {
     //
+
+     public function index(Request $request) // 追加①
+    {
+        // 検索したキーワード
+        $word = $request->search; // 追加②
+        dd($word); // 追加③
+
+        // Eloquentでeventsテーブルにあるデータを全て取得
+        $events = $this->event->allEventsData();
+
+        return view('top.index', compact('events'));
+    }
+    
     public function event(){
 
         $school = new School();

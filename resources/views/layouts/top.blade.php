@@ -58,19 +58,20 @@
 
                 </div>
                 <div class=" w-50 pe-3">
-                    <form action="POST">
+                    <form method="GET" action="{{ route('search') }}">
                         <div class="input-group input-group-lg">
                             <span class="input-group-text" id="inputGroup-sizing-lg">サイト内検索</span>
-                            <input class="form-control bg-white form-select-lg" list="datalistOptions" id="exampleDataList" placeholder="興味のあることは何ですか？">
+                            {{-- <input class="form-control bg-white form-select-lg" name="search" list="datalistOptions" id="exampleDataList" placeholder="興味のあることは何ですか？" value={{ request('word')}} > --}}
+                            <input class="form-control bg-white form-select-lg" name="word" list="datalistOptions" id="exampleDataList" placeholder="興味のあることは何ですか？" value="{{ isset($word) ? $word : '' }}" >
                             <datalist id="datalistOptions">
 
                             <option value="スポーツ">
-                            <option value="New York">
-                            <option value="Seattle">
+                            <option value="英語">
+                            <option value="科学">
                             <option value="Los Angeles">
                             <option value="Chicago">
                             </datalist>
-                            <button type="button" class="btn btn-primary">serch</button>
+                            <button type="submit" class="btn btn-primary">search</button>
                         </div>
                     </form>
 
@@ -118,6 +119,9 @@
                     @yield('content3')
                     @yield('form')
             </div>
+            {{-- <div class="d-flex justify-content-center ">
+        {{ $articles->links() }}
+  </div> --}}
 
         </div>
 

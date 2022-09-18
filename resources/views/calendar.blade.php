@@ -34,11 +34,11 @@
                     </div>
 @endsection
 @section('content4')
-<form action="POST">
+<form class="form-inline">
     <div class="input-group input-group-lg">
   <span class="input-group-text" id="inputGroup-sizing-lg">日付で検索</span>
-  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-    <button type="button" class="btn btn-primary">serch</button>
+  <input type="date" name="day" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value={{ request('day') }}>
+    <button type="submit" class="btn btn-primary">serch</button>
     </div>
 </form>
 
