@@ -6,19 +6,44 @@ use Illuminate\Http\Request;
 use App\Models\School;
 use App\Models\Event;
 
+
+
+
+
 class EventController extends Controller
 {
     //
 
-    public function index(){
-        $event = Event::join('schools', 'events.school_id', '=', 'schools.id')
-        ->get();
+    // public function index(){
+    //     $event = Event::join('schools', 'events.school_id', '=', 'schools.id')
+    //     ->get();
 
-    }
+    // }
     public function event(){
         $event_it = School::find(1) -> events;
         $event_name =School::find(1)->events;
         //dd($event_it);
+    }
+    public function search(Request $request){
+        $word = $request->all();
+        //dd($word);
+        $goodword = implode( $word  );
+        $event = Event::join('event_categories', 'events.id', '=', 'event_categories.event_id')
+            ->join('categories', 'event_categories.category_id', '=', 'categories.id')
+            ->join('schools','events.school_id','=','schools.id')
+            ->where('title','like' ,"%$goodword%")
+            ->orWhere('event_day','like' ,"%$goodword%")
+             ->orWhere('area','like' ,"%$goodword%")
+             ->orWhere('target_min_age','like' ,"%$goodword%")
+             ->orWhere('target_max_age','like' ,"%$goodword%")
+             ->orWhere('content','like' ,"%$goodword%")
+             ->orWhere('price','like' ,"%$goodword%")
+             ->orWhere('name','like' ,"%$goodword%")
+             ->orWhere('school_name','like' ,"%$goodword%")
+             ->orWhere('about','like' ,"%$goodword%")
+            ->get();
+            dd($event);
+
     }
 
      public function form($id)
@@ -53,6 +78,15 @@ class EventController extends Controller
 
         return view('event.myevent_detail', compact('school_name'));
     }
+
+    /**
+     * イベント一覧画面
+     */
+
+
+
+
+
 
 
 }
