@@ -87,7 +87,7 @@
                              <div class="card-body col-4 flex-fill bd-highlight">
 
                                 {{-- カードを入れてみる --}}
-                                <div class="card" style="width: 18rem;">
+                                <div class="card h-100" style="width: 18rem;">
                                 <img class="card-img-top" src="{{ asset($event_image -> path) }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event_image->title }}</h5>

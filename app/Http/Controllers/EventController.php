@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\School;
 use App\Models\Event;
+use App\Models\Category;
+use App\Models\Image;
+use App\Models\EventCategory;
+use App\Models\EventImage;
+use Carbon\Carbon;
+
+
 
 
 
@@ -50,10 +57,16 @@ class EventController extends Controller
         $day = $request->all();
         //dd($word);
         $good_day = implode( $day  );
-        $event_day = Event::where('event_day','like' ,"%$good_day%")
+        $event_days = Event::where('event_day','like' ,"%$good_day%")
             ->join('schools','events.school_id','=','schools.id')
+            ->join('images','events.image_id','=','images.id')
             ->get();
-            //dd($event_day);
+            //dd($event_days);
+        $count = Event::where('event_day','like' ,"%$good_day%")
+            ->count();
+            //dd($count);
+            return view('dayevent', compact('event_days','good_day','count'));
+
 
     }
 

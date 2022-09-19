@@ -16,7 +16,8 @@ class Event extends Model
      */
 
       protected $dates = [
-        'event_day'
+        'event_day',
+        'good_day'
     ];
     protected $dateFormat = 'U';
 
@@ -34,7 +35,7 @@ class Event extends Model
         return $this -> belongsToMany('App\Models\Category');
     }
 
-    
+
 
 
 }

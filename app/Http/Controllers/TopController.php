@@ -27,18 +27,18 @@ class TopController extends Controller
     {
         // 検索したキーワード
         $word = $request->search; // 追加②
-        dd($word); // 追加③
+        //dd($word); // 追加③
 
         // Eloquentでeventsテーブルにあるデータを全て取得
         $events = $this->event->allEventsData();
 
         return view('top.index', compact('events'));
     }
-    
+
     public function event(){
 
         $school = new School();
-        dd($school);
+        //dd($school);
         $all_events = Category::find(1)->events;
         //dd($all_events);
         $event = new Event();
@@ -75,15 +75,14 @@ class TopController extends Controller
     public function show($id)
     {
 
-
+        //dd($id);
         $school_name = Event:: join('schools','events.school_id','=','schools.id')
         ->join('images','events.image_id','=','images.id')
         ->join('event_categories','events.id','=','event_categories.event_id')
         ->join('categories','event_categories.category_id','=','categories.id')
-
-        ->where('events.id',$id)
+        ->where('events.id','=',$id)
         ->first();
-
+        //dd($school_name);
 
         return view('event.event_detail', compact('school_name'));
     }

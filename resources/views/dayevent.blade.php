@@ -38,7 +38,7 @@
     <div class="input-group input-group-lg">
   <span class="input-group-text" id="inputGroup-sizing-lg">日付で検索</span>
   <input type="date" name="day" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value="{{ isset($word) ? $word : '' }}">
-    <button type="submit" class="btn btn-primary">serch</button>
+    <button type="submit" class="btn btn-primary">search</button>
     </div>
 </form>
 
@@ -49,4 +49,42 @@
 </body>
 </html>
 @endsection
+@section('content3')
+                <div class="card">
+                        <div class="card-header">
+                            {{-- {{ dd(strval($good_day)) }} --}}
+                        <h4>{{ strval($good_day)}} イベント一覧 （{{ $count }}件あります）</h4>
 
+                        </div>
+                        <div class="row">
+                           {{-- <div class="card-body"> --}}
+                           {{-- {{ dd($event_days) }} --}}
+                             @foreach ($event_days as $event_day)
+                             <div class="card-body col-4 flex-fill bd-highlight">
+
+                                {{-- カードを入れてみる --}}
+                                <div class="card h-100" style="width: 18rem;">
+                                <img class="card-img-top" src="{{ asset($event_day -> path) }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $event_day->title }}</h5>
+                                    <p>イベント日程：
+                                    @isset($event_day->event_day)
+                                    <span>{{ $event_day->event_day->format('Y/m/d') }}</span>
+                                    @endisset
+                                    </p>
+                                    <p>イベント料金：{{ $event_day->price }}円</p>
+                                    <p>対象年齢：{{ $event_day->target_min_age }}歳〜{{ $event_day->target_max_age }}歳</p>
+                                    <p class="card-text">{{ $event_day->content_summary }}</p>
+                                    <td><a href="{{ route('show', ['id'=>$event_day->id]) }}" class="btn btn-primary">詳細</a></td>
+                                    {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
+                                </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+
+                        {{-- </div> --}}
+                        </div>
+
+                    </div>
+@endsection
