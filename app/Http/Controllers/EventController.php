@@ -35,21 +35,32 @@ class EventController extends Controller
         $word = $request->all();
         //dd($word);
         $goodword = implode( $word  );
-        $event = Event::join('event_categories', 'events.id', '=', 'event_categories.event_id')
+        $event_images = Event::join('event_categories', 'events.id', '=', 'event_categories.event_id')
             ->join('categories', 'event_categories.category_id', '=', 'categories.id')
             ->join('schools','events.school_id','=','schools.id')
+            ->join('images','events.image_id','=','images.id')
             ->where('title','like' ,"%$goodword%")
             ->orWhere('event_day','like' ,"%$goodword%")
-             ->orWhere('area','like' ,"%$goodword%")
-             ->orWhere('target_min_age','like' ,"%$goodword%")
-             ->orWhere('target_max_age','like' ,"%$goodword%")
-             ->orWhere('content','like' ,"%$goodword%")
-             ->orWhere('price','like' ,"%$goodword%")
-             ->orWhere('name','like' ,"%$goodword%")
-             ->orWhere('school_name','like' ,"%$goodword%")
-             ->orWhere('about','like' ,"%$goodword%")
+            ->orWhere('area','like' ,"%$goodword%")
+            ->orWhere('target_min_age','like' ,"%$goodword%")
+            ->orWhere('target_max_age','like' ,"%$goodword%")
+            ->orWhere('content','like' ,"%$goodword%")
+            ->orWhere('price','like' ,"%$goodword%")
+            ->orWhere('name','like' ,"%$goodword%")
+            ->orWhere('school_name','like' ,"%$goodword%")
+            ->orWhere('about','like' ,"%$goodword%")
             ->get();
-            //dd($event);
+            //dd($event_images);
+
+            $categories =Category::whereNull('deleted_at')
+            ->orderBy('id', 'DESC')
+            ->get();
+
+            $count = Event::where('event_day', 'like', "%$goodword%")
+                        ->count();
+            //dd($count);
+
+            return view('event.event', compact('event_images','goodword','count','categories'));
 
     }
 

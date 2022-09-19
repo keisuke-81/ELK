@@ -77,7 +77,11 @@
 @section('content3')
                 <div class="card">
                         <div class="card-header">
-                        <h4>イベント一覧</h4>
+                        <h4>
+                            @isset($goodword)
+                                    <span>{{ $goodword }}</span>
+                            @endisset
+                        イベント一覧</h4>
 
                         </div>
                         <div class="row">
