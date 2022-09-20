@@ -30,7 +30,26 @@
     <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
     <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/css/reset.css">
     <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/css/5-10.css">
+<style>
 
+  /* カレンダーのヘッダースタイル(年月がある部分) */
+  .fc-header-toolbar {
+
+    padding-top: 1em;
+
+
+    padding-left: 1em;
+
+
+    padding-right: 1em;
+
+  }
+  .fc-title{
+    font-size: .1.5rem;
+}
+
+
+</style>
 </head>
 <body>
  <canvas id="waveCanvas"></canvas>
@@ -62,7 +81,7 @@
                         <div class="input-group input-group-lg">
                             <span class="input-group-text" id="inputGroup-sizing-lg">サイト内検索</span>
                             {{-- <input class="form-control bg-white form-select-lg" name="search" list="datalistOptions" id="exampleDataList" placeholder="興味のあることは何ですか？" value={{ request('word')}} > --}}
-                            <input class="form-control bg-white form-select-lg" name="word" list="datalistOptions" id="exampleDataList" placeholder="興味のあることは何ですか？" value="{{ isset($word) ? $word : '' }}" >
+                            <input class="form-control bg-white form-select-lg" name="word" list="datalistOptions" id="exampleDataList" placeholder="興味のあること、スクール名などは何ですか？" value="{{ isset($word) ? $word : '' }}" >
                             <datalist id="datalistOptions">
 
                             <option value="スポーツ">
@@ -99,7 +118,8 @@
                         </div>
 
                         <div class="card-body row flex-fill ">
-                        <div class="btn-group-vertical  col-4 ">
+                        <div class="btn-group-vertical  col-3 ">
+
                         <a href="{{ url('elkevent') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>E.L.Kのイベント</h4></a>
                         <a href="{{ url('calendar') }}" class="btn btn-outline-primary  " tabindex="-1" role="button" aria-disabled="true"><h4>イベントカレンダー</h4></a>
                         <a href="{{ url('top/free') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>無料イベント</h4></a>
@@ -107,7 +127,7 @@
 
                         </div>
 
-                    <div class="col-8">
+                    <div class="col-9">
 
                     @yield('content4')
                     </div>

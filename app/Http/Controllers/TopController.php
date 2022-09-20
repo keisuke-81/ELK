@@ -54,12 +54,15 @@ class TopController extends Controller
         ->get();
 
 
-         $event_images = Event::join('images','events.image_id','=','images.id')
-            ->whereNull('deleted_at')
+         $event_images = Event::join('schools','events.school_id','=','schools.id')
+            ->join('images','events.image_id','=','images.id')
             ->where('status', '=', 'open')
             ->orderBy('event_day','DESC')
             ->get();                      //
-        //dd($event_images);
+       // dd($event_images);
+    //       -> join('event_categories', 'events.id', '=', 'event_categories.event_id')
+     //       ->join('categories', 'event_categories.category_id', '=', 'categories.id')
+
         $count = DB::table('event_categories')
         ->join('events','event_categories.event_id','events.id')
        // ->where('event_day','=','2022-09-15 00:00:00')
@@ -172,7 +175,7 @@ class TopController extends Controller
         $event_images = Event::join('images', 'events.image_id', '=', 'images.id')
                                                     ->where('my_event', 1)
                                                     ->where('status', '=', 'open')
-                                                      ->get();
+                                                    ->get();
 
         //dd($event_images);
 

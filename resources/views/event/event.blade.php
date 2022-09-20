@@ -95,13 +95,22 @@
                                 <img class="card-img-top" src="{{ asset($event_image -> path) }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event_image->title }}</h5>
+                                    <p>スクール名：{{ $event_image->school_name}}</p>
                                     <p>イベント日程：
                                     @isset($event_image->event_day)
                                     <span>{{ $event_image->event_day->format('Y/m/d') }}</span>
                                     @endisset
                                     </p>
                                     <p>イベント料金：{{ $event_image->price }}円</p>
-                                    <p>対象年齢：{{ $event_image->target_min_age }}歳〜{{ $event_image->target_max_age }}歳</p>
+                                    <p>
+                                        対象年齢：
+                                        @isset($event_image->target_min_age)
+                                        {{ $event_image->target_min_age }}歳
+                                        @endisset
+                                        <span>〜</span>
+                                        @isset($event_image->target_max_age)
+                                        {{ $event_image->target_max_age }}歳</p>
+                                        @endisset
                                     <p class="card-text">{{ $event_image->content_summary }}</p>
                                     <td><a href="{{ route('show', ['id'=>$event_image->id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}

@@ -95,7 +95,15 @@
             <span>{{ $school_name->event_day->format('Y/m/d') }}</span>
             @endisset</p>
           <li>対象年齢</li>
-          <p>{{ $school_name->target_min_age }}歳〜{{ $school_name->target_max_age }}歳</p>
+           <p>
+          @isset($school_name->target_min_age)
+            {{ $school_name->target_min_age }}歳
+          @endisset
+            <span>〜</span>
+            @isset($school_name->target_max_age)
+            {{ $school_name->target_max_age }}歳
+          @endisset</>
+          </p>
           <li>イベント運営会社</li>
           <p>{{ $school_name->school_name }}</p>
 
@@ -120,7 +128,7 @@
 
     <li class="list-group-item">(スクール連絡先)<p>{{ $school_name->school_tel }}</p></li>
   </ul>
-  
+
 </div>
 
 

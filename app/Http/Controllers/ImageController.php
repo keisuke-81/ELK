@@ -21,7 +21,7 @@ class ImageController extends Controller
 
         // ファイル情報をDBに保存
         $image = new Image();
-        $image->name = $file_name;
+        $image->image_name = $file_name;
         $image->path = 'storage/' . $dir . '/' . $file_name;
         $image->save();
 

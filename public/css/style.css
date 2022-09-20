@@ -36,6 +36,9 @@ body{
 .space-text{
     white-space: pre-wrap;
 }
+  .fc-title {
+      font-size: .1.5rem;
+  }
 
 
 

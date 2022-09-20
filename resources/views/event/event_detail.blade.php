@@ -95,8 +95,17 @@
             <span>{{ $school_name->event_day->format('Y/m/d') }}</span>
             @endisset</p>
           <li>対象年齢</li>
-          <p>{{ $school_name->target_min_age }}歳〜{{ $school_name->target_max_age }}歳</p>
+          <p>
+          @isset($school_name->target_min_age)
+            {{ $school_name->target_min_age }}歳
+          @endisset
+            <span>〜</span>
+            @isset($school_name->target_max_age)
+            {{ $school_name->target_max_age }}歳
+          @endisset</>
+          </p>
           <li>イベント運営会社</li>
+
           <p>{{ $school_name->school_name }}</p>
 
         </ul>
@@ -115,14 +124,23 @@
     <li class="list-group-item">(主催者（スクール名）)<p>{{ $school_name->school_name }}</p></li>
     <li class="list-group-item">(スクールについて)
         <p>{{ $school_name->about }}</p>
-        <p><a href="{{ $school_name->school_url }}">イベントの公式サイトへ(外部リンク)</a></p></li>
+        <p><a href="{{ $school_name->school_url }}">スクールの公式サイトへ(外部リンク)</a></p></li>
     <li class="list-group-item">(スクール住所)<p>{{ $school_name->school_address }}</p></li>
 
     <li class="list-group-item">(スクール連絡先)<p>{{ $school_name->school_tel }}</p></li>
   </ul>
-  <div class="card-body">
+  <div class="d-flex flex-row bd-highlight">
+    <div class="card-body col">
     <button type="button" onclick="location.href='{{ $school_name->event_url }}'" class="btn btn-primary btn-lg">お申込みへ(外部リンク)</button>
   </div>
+  <div class="card-body col">
+    <button type="button" onclick="location.href='{{ $school_name->calendar_url }}'" class="btn btn-success btn-lg">googleカレンダーに同期する</button>
+  </div>
+  <div class="card-body col">
+    <button type="button" onclick="location.href='{{ $school_name->event_url }}'" class="btn btn-success btn-lg">Outlookに同期する</button>
+  </div>
+  </div>
+
 </div>
 
 

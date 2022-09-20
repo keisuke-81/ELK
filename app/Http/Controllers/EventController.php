@@ -35,10 +35,10 @@ class EventController extends Controller
         $word = $request->all();
         //dd($word);
         $goodword = implode( $word  );
-        $event_images = Event::join('event_categories', 'events.id', '=', 'event_categories.event_id')
-            ->join('categories', 'event_categories.category_id', '=', 'categories.id')
-            ->join('schools','events.school_id','=','schools.id')
+        $event_images = Event::join('schools','events.school_id','=','schools.id')
             ->join('images','events.image_id','=','images.id')
+            ->join('event_categories', 'events.id', '=', 'event_categories.event_id')
+            ->join('categories', 'event_categories.category_id', '=', 'categories.id')
             ->where('title','like' ,"%$goodword%")
             ->orWhere('event_day','like' ,"%$goodword%")
             ->orWhere('area','like' ,"%$goodword%")
@@ -49,8 +49,12 @@ class EventController extends Controller
             ->orWhere('name','like' ,"%$goodword%")
             ->orWhere('school_name','like' ,"%$goodword%")
             ->orWhere('about','like' ,"%$goodword%")
+            ->where('status', '=', 'open')
             ->get();
             //dd($event_images);
+
+
+
 
             $categories =Category::whereNull('deleted_at')
             ->orderBy('id', 'DESC')

@@ -35,8 +35,8 @@
 @endsection
 @section('content4')
 <form method="GET" action="{{ route('daySearch') }}">
-    <div class="input-group input-group-lg">
-  <span class="input-group-text" id="inputGroup-sizing-lg">日付で検索</span>
+    <div class="input-group">
+  <span class="input-group-text" id="inputGroup-sizing-lg">日付</span>
   <input type="date" name="day" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value="{{ isset($word) ? $word : '' }}">
     <button type="submit" class="btn btn-primary">search</button>
     </div>

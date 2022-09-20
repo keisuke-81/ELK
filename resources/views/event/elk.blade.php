@@ -50,7 +50,7 @@
                              <div class="card-body col-4 flex-fill bd-highlight">
 
                                 {{-- カードを入れてみる --}}
-                                <div class="card" style="width: 18rem;">
+                                <div class="card h-100" style="width: 18rem;">
                                 <img class="card-img-top" src="{{ asset($event_image -> path) }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event_image->title }}</h5>
@@ -60,7 +60,16 @@
                                     @endisset
                                     </p>
                                     <p>イベント料金：{{ $event_image->price }}円</p>
-                                    <p>対象年齢：{{ $event_image->target_min_age }}歳〜{{ $event_image->target_max_age }}歳</p>
+                                    <p>
+                                        対象年齢：
+                                    @isset($event_image->target_min_age)
+                                        {{ $event_image->target_min_age }}歳
+                                    @endisset
+                                        <span>〜</span>
+                                        @isset($event_image->target_max_age)
+                                        {{ $event_image->target_max_age }}歳
+                                    @endisset</>
+                                    </p>
                                     <p class="card-text">{{ $event_image->content_summary }}</p>
                                     <td><a href="{{ route('myshow', ['id'=>$event_image->id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
