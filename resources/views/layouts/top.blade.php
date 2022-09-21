@@ -27,9 +27,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
-    <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/css/5-10.css">
+
 <style>
 
   /* カレンダーのヘッダースタイル(年月がある部分) */
@@ -52,7 +50,7 @@
 </style>
 </head>
 <body>
- <canvas id="waveCanvas"></canvas>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
 
@@ -80,15 +78,11 @@
                     <form method="GET" action="{{ route('search') }}">
                         <div class="input-group input-group-lg">
                             <span class="input-group-text" id="inputGroup-sizing-lg">サイト内検索</span>
-                            {{-- <input class="form-control bg-white form-select-lg" name="search" list="datalistOptions" id="exampleDataList" placeholder="興味のあることは何ですか？" value={{ request('word')}} > --}}
                             <input class="form-control bg-white form-select-lg" name="word" list="datalistOptions" id="exampleDataList" placeholder="興味のあること、スクール名などは何ですか？" value="{{ isset($word) ? $word : '' }}" >
                             <datalist id="datalistOptions">
-
                             <option value="スポーツ">
                             <option value="英語">
                             <option value="科学">
-                            <option value="Los Angeles">
-                            <option value="Chicago">
                             </datalist>
                             <button type="submit" class="btn btn-primary">search</button>
                         </div>
@@ -131,7 +125,7 @@
 
                     @yield('content4')
                     </div>
-<button></button>
+
                     </div>
 
                 </div>
@@ -147,7 +141,6 @@
 
         </main>
     </div>
-    <script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/js/5-10.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
