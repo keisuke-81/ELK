@@ -31,9 +31,20 @@ class Event extends Model
 
     }
 
-    public function category(){
-        return $this -> belongsToMany('App\Models\Category');
+    public function categories(){
+        return $this -> belongsToMany('App\Models\Category','event_categories','event_id','category_id',);
     }
+    // public function school(){
+    //     return $this->belongsTo('App\Models\School');
+
+    // }
+    public function image()
+    {
+        return $this->hasOne(Image::class,'path');
+    }
+    //  public function images(){
+    //     return $this->hasMany(Image::class,'path');
+    // }
 
 
 

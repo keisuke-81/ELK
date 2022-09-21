@@ -12,4 +12,15 @@ class Image extends Model
       'name',
       'path',
     ];
+
+    public function event()
+    {
+        return $this->hasOne(Event::class,'path');
+    }
+    // public function event(){
+    //     return $this->belongsTo(Event::class,'path');
+
+    // }
+
+
 }

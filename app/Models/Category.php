@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     //use HasFactory;
-    public function categories(){
-        return $this->belongsToMany('App\Models\Shop');
+    public function events(){
+        return $this->belongsToMany('App\Models\Event');
     }
 }

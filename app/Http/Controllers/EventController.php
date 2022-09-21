@@ -40,38 +40,30 @@ class EventController extends Controller
 
 if (!empty($goodword)) {
     $events = Event::query()
-            ->join('schools', 'events.school_id', '=', 'schools.id')
-            ->join('images', 'events.image_id', '=', 'images.id')
-            ->join('event_categories', 'events.id', '=', 'event_categories.event_id')
-            ->join('categories', 'event_categories.category_id', '=', 'categories.id')
-            ->where('status', '=', 'open')
-            ->where(function ($query) use ($goodword) {
-                $query->Where('title', 'LIKE', "%{$goodword}%")
-                        ->orWhere('content', 'LIKE', "%{$goodword}%");
-                    });
-            // ->where(function ($query) use ($goodword) {
-            //     $query->orWhere('target_min_age', 'like', "%{$goodword}%")
-            //             ->orWhere('target_max_age', 'like', "%{$goodword}%");})
-            //->where(function ($query) use ($goodword) {
-                //$query->Where('title', 'LIKE', "%{$goodword}%")
-                      // -> orWhere('content', 'LIKE', "%$goodword%");});
-            // ->where(function ($query) use ($goodword) {
-            //     $query->orWhere('content', 'LIKE', "%$goodword%");});
-            // ->where(function ($query) use ($goodword) {
-            //     $query->orwhere('title', 'like', "%{$goodword}%");})
-            //             //->orWhere('price', 'like', "%{$goodword}%");})
-            // ->where(function ($query) use ($goodword) {
-            //     $query->orWhere('name', 'like', "%{$goodword}%");})
-            // ->where(function ($query) use ($goodword) {
-            //     $query->orWhere('school_name', 'like', "%{$goodword}%");});
-            // ->where(function ($query) use ($goodword) {
-            //     $query->orWhere('about', 'like', "%{$goodword}%");
-        //    ->get();
-            // });
-        }
+               ->join('schools', 'events.school_id', '=', 'schools.id')
+                ->join('images', 'events.image_id', '=', 'images.id')
+            //    ->join('event_categories', 'events.id', '=', 'event_categories.event_id')
+            //    ->join('categories', 'event_categories.category_id', '=', 'categories.id')
+               ->where('status', '=', 'open')
+                ->where(function($query)use($goodword){
+                $query->where('title','LIKE',"%{$goodword}%")
+                ->orWhereHas('school', function ($query) use ($goodword) {
+                $query->where('school_name', 'LIKE', "%{$goodword}%");
+                })
+                ->orWhereHas('categories', function ($query) use ($goodword) {
+                    $query->where('name', 'LIKE', "%{$goodword}%");
+                });
+            });
 
-        $event_images = $events->get();
-        //dd($event_images);
+
+}
+    $event_images = $events->get();
+    //dd($event_images);
+    // $seach_events = array_unique($event_images.attributes);
+
+
+        //var_dump($event_images);
+        //dd($seach_events);
         // $event_images = $event->orWhere('event_day','like' ,"%{$goodword}%")
         //                     ->orWhere('area','like' ,"%{$goodword}%")
         //                     ->orWhere('target_min_age','like' ,"%{$goodword}%")

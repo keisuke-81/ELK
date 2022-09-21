@@ -59,6 +59,7 @@
 
                                 {{-- カードを入れてみる --}}
                                 <div class="card h-100" style="width: 18rem;">
+                                       {{-- {{ dd(asset($event_image -> path)) }} --}}
                                 <img class="card-img-top" src="{{ asset($event_image -> path) }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event_image->title }}</h5>
@@ -80,7 +81,7 @@
                                         @endisset
                                     <p class="card-text">{{ $event_image->content_summary }}</p>
                                     {{-- {{ dd($event_image->id) }} --}}
-                                    <td><a href="{{ route('show', ['id'=>$event_image->event_id]) }}" class="btn btn-primary">詳細</a></td>
+                                    <td><a href="{{ route('show', ['id'=>$event_image->id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
                                 </div>
                                 </div>
