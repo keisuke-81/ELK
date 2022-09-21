@@ -49,6 +49,8 @@ Route::get('/elkevent', [TopController::class, 'elkevent'])->name('elkevent');
 Route::get('/myshow/{id}', [EventController::class, 'myshow'])->name('myshow');
 Route::get('/search', [EventController::class, 'search'])->name('search');
 Route::get('/daySearch', [EventController::class, 'daySearch'])->name('daySearch');
+Route::get('/free', [EventController::class, 'free'])->name('free');
+Route::get('/paid', [EventController::class, 'paid'])->name('paid');
 
 
 

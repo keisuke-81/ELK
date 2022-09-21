@@ -54,7 +54,7 @@ class TopController extends Controller
         ->get();
 
 
-         $event_images = Event::join('schools','events.school_id','=','schools.id')
+         $events = Event::join('schools','events.school_id','=','schools.id')
             ->join('images','events.image_id','=','images.id')
             ->where('status', '=', 'open')
             ->orderBy('event_day','DESC')
@@ -71,7 +71,7 @@ class TopController extends Controller
         ->count();
         //dd($count);
 
-        return view('event.event',compact('categories','event_images'));
+        return view('event.event',compact('categories','events'));
 
     }
 

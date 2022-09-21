@@ -54,33 +54,33 @@
                         <div class="row">
                            {{-- <div class="card-body"> --}}
                            {{-- {{ dd($event_images) }} --}}
-                             @foreach ($event_images as $event_image)
+                             @foreach ($events as $event)
                              <div class="card-body col-4 flex-fill bd-highlight">
 
                                 {{-- カードを入れてみる --}}
                                 <div class="card h-100" style="width: 18rem;">
-                                <img class="card-img-top" src="{{ asset($event_image -> path) }}" alt="Card image cap">
+                                <img class="card-img-top" src="{{ asset($event -> path) }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $event_image->title }}</h5>
-                                    <p>スクール名：{{ $event_image->school_name}}</p>
+                                    <h5 class="card-title">{{ $event->title }}</h5>
+                                    <p>スクール名：{{ $event->school_name}}</p>
                                     <p>イベント日程：
-                                    @isset($event_image->event_day)
-                                    <span>{{ $event_image->event_day->format('Y/m/d') }}</span>
+                                    @isset($event->event_day)
+                                    <span>{{ $event->event_day->format('Y/m/d') }}</span>
                                     @endisset
                                     </p>
-                                    <p>イベント料金：{{ $event_image->price }}円</p>
+                                    <p>イベント料金：{{ $event->price }}円</p>
                                     <p>
                                         対象年齢：
-                                        @isset($event_image->target_min_age)
-                                        {{ $event_image->target_min_age }}歳
+                                        @isset($event->target_min_age)
+                                        {{ $event->target_min_age }}歳
                                         @endisset
                                         <span>〜</span>
-                                        @isset($event_image->target_max_age)
-                                        {{ $event_image->target_max_age }}歳</p>
+                                        @isset($event->target_max_age)
+                                        {{ $event->target_max_age }}歳</p>
                                         @endisset
-                                    <p class="card-text">{{ $event_image->content_summary }}</p>
+                                    <p class="card-text">{{ $event->content_summary }}</p>
                                     {{-- {{ dd($event_image->id) }} --}}
-                                    <td><a href="{{ route('show', ['id'=>$event_image->id]) }}" class="btn btn-primary">詳細</a></td>
+                                    <td><a href="{{ route('show', ['id'=>$event->id]) }}" class="btn btn-primary">詳細</a></td>
                                     {{-- <a href="/eventDetail/?event={{ $event->id }}" class="btn btn-primary">Go somewhere</a> --}}
                                 </div>
                                 </div>

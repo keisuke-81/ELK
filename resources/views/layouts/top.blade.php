@@ -114,10 +114,10 @@
                         <div class="card-body row flex-fill ">
                         <div class="btn-group-vertical  col-3 ">
 
-                        <a href="{{ url('elkevent') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>E.L.Kのイベント</h4></a>
-                        <a href="{{ url('calendar') }}" class="btn btn-outline-primary  " tabindex="-1" role="button" aria-disabled="true"><h4>イベントカレンダー</h4></a>
-                        <a href="{{ url('top/free') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>無料イベント</h4></a>
-                        <a href="{{ url('top/paid') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>有料イベント</h4></a>
+                        <a href="{{ route('elkevent') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>E.L.Kのイベント</h4></a>
+                        <a href="{{ route('calendar') }}" class="btn btn-outline-primary  " tabindex="-1" role="button" aria-disabled="true"><h4>イベントカレンダー</h4></a>
+                        <a href="{{ route('free') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>無料イベント</h4></a>
+                        <a href="{{ route('paid') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>有料イベント</h4></a>
 
                         </div>
 

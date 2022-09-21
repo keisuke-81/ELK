@@ -31,6 +31,49 @@ class EventController extends Controller
         $event_name =School::find(1)->events;
         //dd($event_it);
     }
+    public function free(){
+        $events = Event::query()
+                ->where('status', '=', 'open')
+                ->Where('price_free','=',0)
+                ->join('schools', 'events.school_id', '=', 'schools.id')
+                ->join('images', 'events.image_id', '=', 'images.id')
+                ->orderBy('event_day','DESC')
+                ->get();
+                //dd($events);
+
+                $categories =Category::whereNull('deleted_at')
+                ->orderBy('id', 'DESC')
+                ->get();
+
+                $goodword = "無料";
+
+        return view('event.event', compact('categories', 'events','goodword'));
+
+
+    }
+     public function paid(){
+        $events = Event::query()
+                ->where('status', '=', 'open')
+                ->Where('price_free','=',1)
+                ->join('schools', 'events.school_id', '=', 'schools.id')
+                ->join('images', 'events.image_id', '=', 'images.id')
+                ->orderBy('event_day','DESC')
+                ->get();
+                //dd($events);
+
+
+                $categories =Category::whereNull('deleted_at')
+                ->orderBy('id', 'DESC')
+                ->get();
+
+                $goodword = "有料";
+
+
+        return view('event.event', compact('categories', 'events','goodword'));
+
+
+    }
+
     public function search(Request $request){
         $goodword = $request->word;
         //dd($word);
@@ -58,46 +101,6 @@ if (!empty($goodword)) {
 
 }
     $event_images = $events->get();
-    //dd($event_images);
-    // $seach_events = array_unique($event_images.attributes);
-
-
-        //var_dump($event_images);
-        //dd($seach_events);
-        // $event_images = $event->orWhere('event_day','like' ,"%{$goodword}%")
-        //                     ->orWhere('area','like' ,"%{$goodword}%")
-        //                     ->orWhere('target_min_age','like' ,"%{$goodword}%")
-        //                     ->orWhere('target_max_age','like' ,"%{$goodword}%")
-        //                     ->orWhere('content','like' ,"%{$goodword}%")
-        //                     ->orWhere('price','like' ,"%{$goodword}%")
-        //                     ->orWhere('name','like' ,"%{$goodword}%")
-        //                     ->orWhere('school_name','like' ,"%{$goodword}%")
-        //                     ->orWhere('about','like' ,"%{$goodword}%")
-        //                     ->get();
-        //dd($event);
-        //dd($event_images);
-
-
-
-
-        // $goodword = implode( $word  );
-        // $event_images = Event::join('schools','events.school_id','=','schools.id')
-        //     ->join('images','events.image_id','=','images.id')
-        //     ->join('event_categories', 'events.id', '=', 'event_categories.event_id')
-        //     ->join('categories', 'event_categories.category_id', '=', 'categories.id')
-        //     ->where('status', '=', 'open')
-        //     ->orwhere('title','like' ,"%$goodword%")
-        //     ->orWhere('event_day','like' ,"%$goodword%")
-        //     ->orWhere('area','like' ,"%$goodword%")
-        //     ->orWhere('target_min_age','like' ,"%$goodword%")
-        //     ->orWhere('target_max_age','like' ,"%$goodword%")
-        //     ->orWhere('content','like' ,"%$goodword%")
-        //     ->orWhere('price','like' ,"%$goodword%")
-        //     ->orWhere('name','like' ,"%$goodword%")
-        //     ->orWhere('school_name','like' ,"%$goodword%")
-        //     ->orWhere('about','like' ,"%$goodword%")
-        //     ->get();
-            //dd($event_images);
 
 
 
@@ -131,6 +134,7 @@ if (!empty($goodword)) {
 
 
     }
+
 
      public function form($id)
     {
