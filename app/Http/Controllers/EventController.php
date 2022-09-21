@@ -87,9 +87,21 @@ if (!empty($goodword)) {
                 ->join('images', 'events.image_id', '=', 'images.id')
             //    ->join('event_categories', 'events.id', '=', 'event_categories.event_id')
             //    ->join('categories', 'event_categories.category_id', '=', 'categories.id')
-               ->where('status', '=', 'open')
-                ->where(function($query)use($goodword){
+            ->where('status', '=', 'open')
+            ->where(function($query)use($goodword){
                 $query->where('title','LIKE',"%{$goodword}%")
+                ->orWhere(function ($query) use ($goodword) {
+                $query->where('content', 'LIKE', "%{$goodword}%");
+                })
+                ->orWhere(function ($query) use ($goodword) {
+                $query->where('content_summary', 'LIKE', "%{$goodword}%");
+                })
+                ->orWhereHas('school', function ($query) use ($goodword) {
+                $query->where('about', 'LIKE', "%{$goodword}%");
+                })
+                ->orWhereHas('school', function ($query) use ($goodword) {
+                $query->where('school_address', 'LIKE', "%{$goodword}%");
+                })
                 ->orWhereHas('school', function ($query) use ($goodword) {
                 $query->where('school_name', 'LIKE', "%{$goodword}%");
                 })
