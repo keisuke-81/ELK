@@ -167,22 +167,6 @@ class TopController extends Controller
 
 
 
-      public function elkevent()
-    {
-
-
-
-        $event_images = Event::join('images', 'events.image_id', '=', 'images.id')
-                                                    ->where('my_event', 1)
-                                                    ->where('status', '=', 'open')
-                                                    ->get();
-
-        //dd($event_images);
-
-
-        return view('event.elk', compact('event_images'));
-
-    }
-
+      
 
 }

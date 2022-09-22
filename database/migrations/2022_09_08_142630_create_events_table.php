@@ -29,6 +29,7 @@ class CreateEventsTable extends Migration
             $table->boolean('my_event');
             $table->string('event_url')->nullable($value = true);
             $table->string('calendar_url')->nullable($value = true);
+            $table->string('outlookcalendar_url')->nullable($value = true);
             $table->enum('status',['wait','open','end']);
             $table->softDeletes();
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

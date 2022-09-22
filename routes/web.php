@@ -6,6 +6,8 @@ use App\Http\Controllers\TopController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventCategory;
+use App\Http\Controllers\FormController;
+
 
 
 
@@ -44,9 +46,11 @@ Route::post('/category', [HomeController::class, 'category'])->name('category');
 Route::post('/eventCategory', [HomeController::class, 'eventCategory'])->name('eventCategory');
 Route::get('/show/{id}', [TopController::class, 'show'])->name('show');
 Route::get('/categoryEvent/{id}', [TopController::class, 'categoryEvent'])->name('categoryEvent');
-Route::get('/form', [EventController::class, 'form'])->name('form');
-Route::get('/elkevent', [TopController::class, 'elkevent'])->name('elkevent');
-Route::get('/myshow/{id}', [EventController::class, 'myshow'])->name('myshow');
+//Route::get('/form', [FormController::class, 'form'])->name('form');
+Route::get('/elkevent', [FormController::class, 'elkevent'])->name('elkevent');
+//Route::get('/elkevent', [TopController::class, 'elkevent'])->name('elkevent');
+Route::get('/myshow/{id}', [FormController::class, 'myshow'])->name('myshow');
+Route::get('/check/{id}', [FormController::class, 'check'])->name('check');
 Route::get('/search', [EventController::class, 'search'])->name('search');
 Route::get('/daySearch', [EventController::class, 'daySearch'])->name('daySearch');
 Route::get('/free', [EventController::class, 'free'])->name('free');

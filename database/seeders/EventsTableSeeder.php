@@ -31,6 +31,7 @@ class EventsTableSeeder extends Seeder
         'my_event' => '1',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -48,6 +49,7 @@ class EventsTableSeeder extends Seeder
         'my_event' => '1',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -65,6 +67,7 @@ class EventsTableSeeder extends Seeder
         'my_event' => '1',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -82,6 +85,7 @@ class EventsTableSeeder extends Seeder
         'my_event' => '0',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -99,6 +103,7 @@ class EventsTableSeeder extends Seeder
         'my_event' => '0',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -116,11 +121,12 @@ class EventsTableSeeder extends Seeder
         'my_event' => '0',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
     ],
            [
-        'title' => 'kids',
+        'title' => 'kids7',
         'school_id' => '1',
         'image_id' => '1',
         'area' => '福岡',
@@ -133,11 +139,12 @@ class EventsTableSeeder extends Seeder
         'my_event' => '1',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
         [
-        'title' => 'kids2',
+        'title' => 'kids8',
         'school_id' => '1',
         'image_id' => '2',
         'area' => '福岡',
@@ -150,11 +157,12 @@ class EventsTableSeeder extends Seeder
         'my_event' => '1',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
         [
-        'title' => 'kids3',
+        'title' => 'kids9',
         'school_id' => '1',
         'image_id' => '3',
         'area' => '福岡',
@@ -167,6 +175,7 @@ class EventsTableSeeder extends Seeder
         'my_event' => '1',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -184,6 +193,7 @@ class EventsTableSeeder extends Seeder
         'my_event' => '0',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -201,6 +211,7 @@ class EventsTableSeeder extends Seeder
         'my_event' => '0',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
         ],
@@ -218,6 +229,7 @@ class EventsTableSeeder extends Seeder
         'my_event' => '0',
         'event_url' => 'http://localhost/',
         'calendar_url' => 'http://localhost/',
+        'outlookcalendar_url' => 'http://localhost/',
         'status' => '0',
 
     ],

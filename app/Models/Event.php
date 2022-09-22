@@ -31,6 +31,10 @@ class Event extends Model
 
     }
 
+    public function eventUsers(){
+        return $this->hasMany('App\Models\EventUser');
+    }
+
     public function categories(){
         return $this -> belongsToMany('App\Models\Category','event_categories','event_id','category_id',);
     }

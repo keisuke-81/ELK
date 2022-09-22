@@ -181,7 +181,7 @@
 </div>
 
   </div>
-  <button type="button"  onclick="location.href='{{ route('check', ['id'=>$school_name->id])}}'" class="btn btn-primary btn-lg">お申込みへ</button>
+  <button type="button"  onclick="location.href='{{ $school_name->event_url }}'" class="btn btn-primary btn-lg">お申込みへ</button>
 </form>
 </div>
 @endsection
