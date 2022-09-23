@@ -146,9 +146,13 @@
     <h2>イベント名：{{ $school_name->school_name }}</h2>
 
     <div class="row">
-    <div class="col">
+    <div class="col ">
         <label for="exampleInputEmail1" class="form-label">お名前</label>
-        <input type="text" name="name"  class="form-control" placeholder="お名前" aria-label="">
+        <div class="form-group">
+            <input type="text" name="name"  class="form-control" placeholder="お名前" aria-label="">様
+        
+        </div>
+
     </div>
     <div class="col">
         <label for="exampleInputEmail1" class="form-label">フリガナ</label>
@@ -160,7 +164,7 @@
     <div class="row">
 
     <div class="col">
-        <label for="exampleInputEmail1" class="form-label">電話番号</label>
+        <label for="exampleInputEmail1" class="form-label">ケータイもしくは電話番号</label>
         <input type="number" name="tel" class="form-control" placeholder="電話番号" aria-label="">
     </div>
     <div class="mb-3">
@@ -177,13 +181,14 @@
 
     </div>
     <div class="col">
-        <label for="exampleInputEmail1" class="form-label">コメント欄（お子様が２名以上参加される場合、追加の人数と年齢をご記入ください）</label>
+        <label for="exampleInputEmail1" class="form-label">コメント欄（ご要望、もしくはお子様が２名以上参加される場合、追加の人数と年齢をご記入ください）</label>
         <div class="form-floating">
     <textarea class="form-control" name="comment" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" placeholder="お子様の年齢"></textarea>
     <label for="floatingTextarea2"  ></label>
     </div>
 
     </div>
+
   <button type="submit"   class="btn btn-primary btn-lg">お申込みへ</button>
 </form>
 </div>

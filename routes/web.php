@@ -46,6 +46,7 @@ Route::post('/category', [HomeController::class, 'category'])->name('category');
 Route::post('/eventCategory', [HomeController::class, 'eventCategory'])->name('eventCategory');
 //Route::get('/upform', [FormController::class, 'upform'])->name('upform');
 Route::post('/upform', [FormController::class, 'upform'])->name('upform');
+Route::post('/thanks', [FormController::class, 'thanks'])->name('thanks');
 Route::get('/show/{id}', [TopController::class, 'show'])->name('show');
 Route::get('/categoryEvent/{id}', [TopController::class, 'categoryEvent'])->name('categoryEvent');
 //Route::get('/form', [FormController::class, 'form'])->name('form');
@@ -57,6 +58,14 @@ Route::get('/search', [EventController::class, 'search'])->name('search');
 Route::get('/daySearch', [EventController::class, 'daySearch'])->name('daySearch');
 Route::get('/free', [EventController::class, 'free'])->name('free');
 Route::get('/paid', [EventController::class, 'paid'])->name('paid');
+
+
+
+// Route::get('form', 'FormController@showRegistrationForm')->name('show');
+// Route::post('form', 'FormController@post')->name('post');
+// Route::get('form/confirm', 'FormController@confirm')->name('confirm');
+// Route::post('form/confirm', 'FormController@register')->name('resister');
+// Route::get('form/complete', 'FormController@complete')->name('complete');
 
 
 
