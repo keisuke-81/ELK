@@ -9,7 +9,10 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Models\EventCategory;
 use App\Models\EventImage;
+use App\Models\EventUser;
 use Carbon\Carbon;
+use DB;
+
 
 
 class FormController extends Controller
@@ -79,6 +82,26 @@ class FormController extends Controller
 
 
         return view('event.elk', compact('event_images'));
+
+    }
+
+    public function upform(Request $request)
+    {
+
+        $posts = $request->all();
+       // $request->validate(['content' => 'required' ]);
+       //dd($posts);
+        // $key = $request->id;
+        // dd($key);
+        $event_id = EventUser::insertGetId(['event_id' => $posts['event_id'],'name' => $posts['name'],'kana' => $posts['kana'],'email' => $posts['email'],'tel' => $posts['tel'],'kids_age' => $posts['kids_age'],'comment' => $posts['comment']]);
+       //もし他のテーブルにもデータを送る場合下の記述で入ります。
+        // EventImage::insert(['image_id' => $posts['school_id'],'event_id' => $posts['_token']]);
+        //dd($event_id);
+
+        
+        return view('event.check_form', compact('event_id'));
+
+
 
     }
 

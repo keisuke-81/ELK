@@ -44,6 +44,8 @@ Route::post('/store', [HomeController::class, 'store'])->name('store');
 Route::post('/school', [HomeController::class, 'school'])->name('school');
 Route::post('/category', [HomeController::class, 'category'])->name('category');
 Route::post('/eventCategory', [HomeController::class, 'eventCategory'])->name('eventCategory');
+//Route::get('/upform', [FormController::class, 'upform'])->name('upform');
+Route::post('/upform', [FormController::class, 'upform'])->name('upform');
 Route::get('/show/{id}', [TopController::class, 'show'])->name('show');
 Route::get('/categoryEvent/{id}', [TopController::class, 'categoryEvent'])->name('categoryEvent');
 //Route::get('/form', [FormController::class, 'form'])->name('form');

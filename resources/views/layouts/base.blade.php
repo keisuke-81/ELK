@@ -27,13 +27,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
-    <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/css/5-10.css">
+
 
 </head>
 <body>
- <canvas id="waveCanvas"></canvas>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
 

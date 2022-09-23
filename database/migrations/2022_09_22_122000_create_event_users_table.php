@@ -20,12 +20,14 @@ class CreateEventUsersTable extends Migration
         $table->string('name');
         $table->string('kana');
         $table->string('email');
-        $table->integar('tel');
+        $table->integer('tel');
         $table->integer('kids_age');
         $table->string('comment')->nullable($value = true);
         $table->softDeletes()->nullable($value = true);
+        $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+        $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
         $table->foreign('event_id')->references('id')->on('events');
-        $table->timestamps();
+
 
         });
     }
@@ -39,4 +41,6 @@ class CreateEventUsersTable extends Migration
     {
         Schema::dropIfExists('event_users');
     }
+
+    
 }
