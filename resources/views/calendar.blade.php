@@ -1,6 +1,6 @@
 @extends('layouts/top')
 @section('category')
- <div class="card">
+ <div class="card" style="padding-top: 3rem">
                         <div class="card-header ">
                          <h4>イベントカテゴリ</h4>
                         </div>
@@ -20,7 +20,7 @@
                             </div>
 
 
-                            <br>
+
                             <br>
                             <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
                             <br>
@@ -35,9 +35,9 @@
 @endsection
 @section('content4')
 <form method="GET" action="{{ route('daySearch') }}">
-    <div class="input-group ">
+    <div class="input-group mt-3 ">
   <span class="input-group-text" id="inputGroup-sizing-lg">日付</span>
-  <input type="date" name="day" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value="{{ isset($word) ? $word : '' }}">
+  <input type="date" name="day" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value="{{ isset($word) ? $word : '' }}">
     <button type="submit" class="btn btn-primary">serch</button>
     </div>
 </form>

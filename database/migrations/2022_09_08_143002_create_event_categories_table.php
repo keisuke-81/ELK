@@ -14,7 +14,7 @@ class CreateEventCategoriesTable extends Migration
     public function up()
     {
         Schema::create('event_categories', function (Blueprint $table) {
-
+        $table->unsignedBigInteger('id', true);
         $table->unsignedBigInteger('event_id');
         $table->unsignedBigInteger('category_id');
         $table->foreign('event_id')->references('id')->on('events');

@@ -18,7 +18,7 @@ class EventCategorySeeder extends Seeder
         //
 
         DB::table('event_categories')->insert([
-            'event_id' =>'2',
+            'event_id' =>'1',
             'category_id' => '1',
 
         ]);

@@ -75,13 +75,18 @@ class EventController extends Controller
     }
 
     public function search(Request $request){
-        $goodword = $request->word;
-        //dd($word);
+
+        // $goodword = $request->word;
+        // dd($word);
         // $goodword = implode( $word  );
     //dd($goodword);
        // $query = Event::query();
 
-if (!empty($goodword)) {
+if (!empty($request)) {
+
+    $goodword = $request->word;
+    //dd($goodword);
+
     $events = Event::query()
                ->join('schools', 'events.school_id', '=', 'schools.id')
                 ->join('images', 'events.image_id', '=', 'images.id')
@@ -111,9 +116,11 @@ if (!empty($goodword)) {
             });
 
 
-}
-    $event_images = $events->get();
+        }
 
+        if (!empty($events)) {
+            $event_images = $events->get();
+        }
 
 
             $categories =Category::whereNull('deleted_at')
@@ -148,7 +155,7 @@ if (!empty($goodword)) {
     }
 
 
-     
+
 
     /**
      * イベント一覧画面

@@ -30,10 +30,10 @@
 
 
 </head>
-<body>
+<body style="padding-top: 5rem">
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm fixed-top">
 
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/top') }}">

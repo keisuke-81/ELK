@@ -62,6 +62,10 @@ class FormController extends Controller
     public function myshow($id)
     {
 
+        $categories =Category::whereNull('deleted_at')
+            ->orderBy('id', 'DESC')
+            ->get();
+
 
         $school_name = Event:: join('schools','events.school_id','=','schools.id')
         ->join('images','events.image_id','=','images.id')
@@ -75,7 +79,7 @@ class FormController extends Controller
         //$request->session()->put("form_input", $input);
 
 
-        return view('event.myevent_detail', compact('school_name'));
+        return view('event.myevent_detail', compact('school_name','categories'));
     }
 
     public function check($id)
@@ -115,6 +119,10 @@ class FormController extends Controller
     public function elkevent()
     {
 
+$categories =Category::whereNull('deleted_at')
+        ->orderBy('id', 'DESC')
+        ->get();
+
 
 
         $event_images = Event::join('images', 'events.image_id', '=', 'images.id')
@@ -125,7 +133,7 @@ class FormController extends Controller
         //dd($event_images);
 
 
-        return view('event.elk', compact('event_images'));
+        return view('event.elk', compact('event_images','categories'));
 
     }
 

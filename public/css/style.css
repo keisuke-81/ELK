@@ -21,7 +21,9 @@ body{
 .brown-color{
     background-color:rgb(235, 116, 57);
 }
-
+.font-s{
+    font-size: 1rem;
+}
 .font-regu{
     font-size: 1.15rem;
 }
@@ -39,6 +41,16 @@ body{
   .fc-title {
       font-size: .1.5rem;
   }
+
+.center_item{
+    margin:0 auto;
+}
+/* ---------------イベントカテゴリのドロップダウンの幅を広げる */
+.dropdown-menu {
+    width: 200%;
+    margin-top: 60%;
+    padding-left: 10%;
+}
 
 
 

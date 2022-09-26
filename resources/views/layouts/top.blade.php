@@ -49,10 +49,10 @@
 
 </style>
 </head>
-<body>
+<body style="padding-top: 5rem">
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm fixed-top">
 
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/top') }}">
@@ -74,17 +74,21 @@
                     <!-- Right Side Of Navbar -->
 
                 </div>
-                <div class=" w-50 pe-3">
+                <div class=" lg-w-50 pe-3">
                     <form method="GET" action="{{ route('search') }}">
                         <div class="input-group input-group-lg">
-                            <span class="input-group-text" id="inputGroup-sizing-lg">サイト内検索</span>
-                            <input class="form-control bg-white form-select-lg" name="word" list="datalistOptions" id="exampleDataList" placeholder="興味のあること、スクール名などは何ですか？" value="{{ isset($word) ? $word : '' }}" >
+                            <span class="input-group-text" id="inputGroup-sizing-lg">サイト内</span>
+                            <input class="form-control bg-white form-select-lg" name="word" list="datalistOptions" id="exampleDataList" placeholder="興味、スクール名など" value="{{ isset($word) ? $word : '' }}" >
                             <datalist id="datalistOptions">
                             <option value="スポーツ">
                             <option value="英語">
                             <option value="科学">
                             </datalist>
-                            <button type="submit" class="btn btn-primary">search</button>
+                            <button type="submit" class="btn btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </button>
                         </div>
                     </form>
 
@@ -112,16 +116,19 @@
                         </div>
 
                         <div class="card-body row flex-fill ">
-                        <div class="btn-group-vertical  col-3 ">
-
-                        <a href="{{ url('elkevent') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>E.L.Kのイベント</h4></a>
+                        {{-- <div class="btn-group-vertical  col-3 "> --}}
+                        <button type="button" onclick="location.href='{{  url('calendar') }}'" class="col-3 btn btn-warning sm-font-regu">イベント<br>カレンダー</button>
+                        <button type="button" onclick="location.href='{{  url('elkevent') }}'" class="col-3 btn btn-success sm-font-regu">E.L.Kの<br>イベント</button>
+                        <button type="button" onclick="location.href='{{  url('free') }}'" class="col-3 btn btn-outline-primary sm-font-regu">無料<br>イベント</button>
+                        <button type="button" onclick="location.href='{{  url('paid') }}'" class="col-3 btn btn-outline-primary sm-font-regu">有料<br>イベント</button>
+                        {{-- <a href="{{ url('elkevent') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>E.L.Kのイベント</h4></a>
                         <a href="{{ url('calendar') }}" class="btn btn-outline-primary  " tabindex="-1" role="button" aria-disabled="true"><h4>イベントカレンダー</h4></a>
                         <a href="{{ url('free') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>無料イベント</h4></a>
-                        <a href="{{ url('paid') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>有料イベント</h4></a>
+                        <a href="{{ url('paid') }}" class="btn btn-outline-primary " tabindex="-1" role="button" aria-disabled="true"><h4>有料イベント</h4></a> --}}
 
-                        </div>
+                        {{-- </div> --}}
 
-                    <div class="col-9">
+                    <div class="col-lg-9">
 
                     @yield('content4')
                     </div>
