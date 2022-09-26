@@ -149,7 +149,12 @@ if (!empty($request)) {
             ->where('status', '=', 'open')
             ->count();
             //dd($count);
-            return view('dayevent', compact('event_days','good_day','count'));
+
+        $categories =Category::whereNull('deleted_at')
+            ->orderBy('id', 'DESC')
+            ->get();
+
+            return view('dayevent', compact('event_days','good_day','count','categories'));
 
 
     }
