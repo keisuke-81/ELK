@@ -160,13 +160,18 @@ class TopController extends Controller
     public function calendar()
     {
 
-    return view('calendar');
+    $categories =Category::whereNull('deleted_at')
+            ->orderBy('id', 'DESC')
+            ->get();
+
+
+    return view('calendar', compact('categories'));
 
 
     }
 
 
 
-      
+
 
 }
