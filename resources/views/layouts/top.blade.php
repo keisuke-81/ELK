@@ -78,7 +78,7 @@
                     <form method="GET" action="{{ route('search') }}">
                         <div class="input-group input-group-lg">
                             <span class="input-group-text" id="inputGroup-sizing-lg">検索</span>
-                            <input class="form-control bg-white form-select-lg" name="word" list="datalistOptions" id="exampleDataList" placeholder="興味、スクール名" value="{{ isset($word) ? $word : '' }}" >
+                            <input class="form-control bg-white form-select-lg" name="word" list="datalistOptions" id="exampleDataList" placeholder="" value="{{ isset($word) ? $word : '' }}" >
                             <datalist id="datalistOptions">
                             <option value="スポーツ">
                             <option value="英語">

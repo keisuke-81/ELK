@@ -87,7 +87,12 @@ class TopController extends Controller
         ->first();
         //dd($school_name);
 
-        return view('event.event_detail', compact('school_name'));
+        $categories =Category::whereNull('deleted_at')
+                ->orderBy('id', 'DESC')
+                ->get();
+
+
+        return view('event.event_detail', compact('school_name','categories'));
     }
 
     public function categoryEvent($id)

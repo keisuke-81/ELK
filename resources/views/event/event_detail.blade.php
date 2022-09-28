@@ -2,12 +2,12 @@
 
 
 @section('category')
- <div class="card">
+ <div class="card" style="padding-top: 3rem">
                         <div class="card-header ">
                          <h4>イベントカテゴリ</h4>
                         </div>
-                        <div class="card-body">
-                             <div class="btn-group" role="group">
+                         <div class="card-body .d-sm-none .d-md-block">
+                             {{-- <div class="btn-group" role="group">
                                 <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 地域別イベント
                                 </button>
@@ -19,16 +19,33 @@
                                 <a class="dropdown-item" href="#">中国、四国</a>
                                 <a class="dropdown-item" href="#">九州、沖縄</a>
                                 </div>
+                            </div> --}}
+
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                イベントカテゴリ
+                                </button>
+                                <div class="dropdown-menu dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <br>
+                                <br>
+                                <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
+                                <br>
+                                @foreach ($categories as $category)
+                                    <a href="{{ route('categoryEvent', ['id'=>$category->id]) }}" class="card-text d-block text-under-none text-success"><h4>{{ $category->name}}</h4></a>
+                                <br>
+                               @endforeach
+                                </div>
                             </div>
 
-
-                            <br>
-                            <br>
                             <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
 
-                             {{-- @foreach ($tags as $tag)
-                            <a href="/top/?tag_abe={{ $tag['id'] }}" class="card-text d-block text-under-none text-success"><h4>{{ $tag['name'] }}</h4></a>
+                            {{-- <br>
                             <br>
+                            <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
+                            <br>
+                             @foreach ($categories as $category)
+                                  <a href="{{ route('categoryEvent', ['id'=>$category->id]) }}" class="card-text d-block text-under-none text-success"><h4>{{ $category->name}}</h4></a>
+
                             @endforeach --}}
 
 
@@ -99,9 +116,9 @@
   <div class="card-body col">
     <button type="button" onclick="location.href='{{ $school_name->calendar_url }}'" class="btn btn-warning btn-lg font-s">カレンダーに同期</button>
   </div>
-  <div class="card-body col">
+  {{-- <div class="card-body col">
     <button type="button" onclick="location.href='{{ $school_name->outlookcalendar_url }}'" class="btn btn-success btn-lg font-s">Outlookに同期</button>
-  </div>
+  </div> --}}
   </div>
 
 </div>

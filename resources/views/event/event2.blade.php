@@ -71,10 +71,10 @@
                            {{-- <div class="card-body"> --}}
                            {{-- {{ dd($event_images) }} --}}
                              @foreach ($event_images as $event_image)
-                             <div class="card-body col-4 flex-fill bd-highlight">
+                             <div class="card-body col-lg-4 col-sm-5 lg-flex-fill lg-bd-highlight">
 
                                 {{-- カードを入れてみる --}}
-                                <div class="card h-100" style="width: 18rem;">
+                                <div class="card h-100 center_item" style="width: 18rem;">
                                        {{-- {{ dd(asset($event_image -> path)) }} --}}
                                 <img class="card-img-top" src="{{ asset($event_image -> path) }}" alt="Card image cap">
                                 <div class="card-body">
