@@ -63,9 +63,17 @@
                 <label for="inputAddress2" class="form-label">eventUrl</label>
                 <input type="url" name="event_url" class="form-control" id="inputAddress2" placeholder="">
             </div>
-            <div class="col-6">
-                <label for="inputAddress2" class="form-label">calendarUrl</label>
-                <input type="url" name="calendar_url" class="form-control" id="inputAddress2" placeholder="">
+            <div class="col-2">
+                <label for="inputAddress2" class="form-label">calendarUrl_day</label>
+                <input type="number" name="day" class="form-control" id="inputAddress2" placeholder="221014">
+            </div>
+            <div class="col-2">
+                <label for="inputAddress2" class="form-label">calendarUrl_open</label>
+                <input type="number" name="open" class="form-control" id="inputAddress2" placeholder="1600">
+            </div>
+            <div class="col-2">
+                <label for="inputAddress2" class="form-label">calendarUrl_end</label>
+                <input type="number" name="end" class="form-control" id="inputAddress2" placeholder="1700">
             </div>
             <div class="col-6">
                 <label for="inputAddress2" class="form-label">status wait=0 deploy=1 end=2</label>

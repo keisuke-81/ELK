@@ -56,7 +56,10 @@ class HomeController extends Controller
        //dd($posts);
         // $key = $request->id;
         // dd($key);
-        Event::insert(['content' => $posts['content'],'content_summary' => $posts['content_summary'],'title' => $posts['title'],'event_day' => $posts['event_day'],'target_min_age' => $posts['target_min_age'],'target_max_age' => $posts['target_max_age'],'school_id' => $posts['school_id'],'image_id' => $posts['image_id'],'area' => $posts['area'],'my_event' => $posts['my_event'],'price_free' => $posts['price_free'], 'price' => $posts['price'],'event_url' => $posts['event_url'],'calendar_url' => $posts['calendar_url'],'status' => $posts['status']]);
+        //dd($posts['content']);
+        $calendar_url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=キッズイベント&dates=20'.$posts['day'].'T'.$posts['open'].'00/20'.$posts['day'].'T'.$posts['end'].'00&details=イベント内容：'.$posts['title'].'イベント詳細url:'.$posts['event_url'];
+        //dd($calendar_url);
+        Event::insert(['content' => $posts['content'],'content_summary' => $posts['content_summary'],'title' => $posts['title'],'event_day' => $posts['event_day'],'target_min_age' => $posts['target_min_age'],'target_max_age' => $posts['target_max_age'],'school_id' => $posts['school_id'],'image_id' => $posts['image_id'],'area' => $posts['area'],'my_event' => $posts['my_event'],'price_free' => $posts['price_free'], 'price' => $posts['price'],'event_url' => $posts['event_url'],'calendar_url' => $calendar_url,'status' => $posts['status']]);
        //もし他のテーブルにもデータを送る場合下の記述で入ります。
         // EventImage::insert(['image_id' => $posts['school_id'],'event_id' => $posts['_token']]);
         return redirect('admin');
