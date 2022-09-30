@@ -37,7 +37,7 @@ Auth::routes();
 Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('index');
 //Route::get('/event/index', [App\Http\Controllers\EventController::class, 'event'])->name('event');
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'top'])->name('top');
 Route::get('/top', [TopController::class, 'top'])->name('top');
 Route::get('/eventDetail', [TopController::class, 'eventDetail'])->name('eventDetail');
 Route::get('/calendar', [TopController::class, 'calendar'])->name('calendar');
@@ -62,45 +62,42 @@ Route::get('/free', [EventController::class, 'free'])->name('free');
 Route::get('/paid', [EventController::class, 'paid'])->name('paid');
 
 
-/*
-|--------------------------------------------------------------------------
-| 1) User 認証不要
-|--------------------------------------------------------------------------
-*/
-Route::get('/', function () { return redirect('/home'); });
+// /*
+// |--------------------------------------------------------------------------
+// | 1) User 認証不要
+// |--------------------------------------------------------------------------
+// */
+// Route::get('/', function () { return redirect('/top'); });
 
-/*
-/*
-|--------------------------------------------------------------------------
-| 2) User ログイン後
-|--------------------------------------------------------------------------
-*/
-Route::group(['middleware' => 'auth:user'], function () {
-    Route::get('/top', 'HomeController@index')->name('home');
-});
-/*
-|--------------------------------------------------------------------------
-| 3) Admin 認証不要
-|--------------------------------------------------------------------------
-*/
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', function () {
-        return redirect('/admin/home');
-    });
-    Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
-    Route::post('login', 'Admin\LoginController@login');
-});
+// /*
+// /*
+// |--------------------------------------------------------------------------
+// | 2) User ログイン後
+// |--------------------------------------------------------------------------
+// */
+// Route::group(['middleware' => 'auth:user'], function () {
+//     Route::get('/home', [TopController::class, 'top'])->name('top');
+// });
+// /*
+// |--------------------------------------------------------------------------
+// | 3) Admin 認証不要
+// |--------------------------------------------------------------------------
+// */
+// Route::group(['prefix' => 'admin'], function() {
+//     Route::get('/',         function () { return redirect('/admin/home'); });
+//     Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
+//     Route::post('login',    'Admin\LoginController@login');
+// });
 
-/*
-|--------------------------------------------------------------------------
-| 4) Admin ログイン後
-|--------------------------------------------------------------------------
-*/
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
-    Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
-    Route::get('home', 'Admin\HomeController@index')->name('admin.home');
-});
-
+// /*
+// |--------------------------------------------------------------------------
+// | 4) Admin ログイン後
+// |--------------------------------------------------------------------------
+// */
+// Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+//     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
+//     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+// });
 
 
 
