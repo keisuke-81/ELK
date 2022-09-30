@@ -36,8 +36,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('index');
 //Route::get('/event/index', [App\Http\Controllers\EventController::class, 'event'])->name('event');
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'top'])->name('top');
+//Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 Route::get('/top', [TopController::class, 'top'])->name('top');
 Route::get('/eventDetail', [TopController::class, 'eventDetail'])->name('eventDetail');
 Route::get('/calendar', [TopController::class, 'calendar'])->name('calendar');
@@ -75,30 +75,40 @@ Route::get('/paid', [EventController::class, 'paid'])->name('paid');
 // | 2) User ログイン後
 // |--------------------------------------------------------------------------
 // */
-// Route::group(['middleware' => 'auth:user'], function () {
-//     Route::get('/home', [TopController::class, 'top'])->name('top');
-// });
+    Route::group(['middleware' => 'auth:user'], function () {
+        Route::get('/home', [TopController::class, 'top'])->name('top');
+    });
 // /*
 // |--------------------------------------------------------------------------
 // | 3) Admin 認証不要
 // |--------------------------------------------------------------------------
 // */
-// Route::group(['prefix' => 'admin'], function() {
-//     Route::get('/',         function () { return redirect('/admin/home'); });
-//     Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
-//     Route::post('login',    'Admin\LoginController@login');
-// });
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/',         function () { return redirect('/admin/home'); });
+    Route::get('login',     'App\Http\Controllers\Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login',    'App\Http\Controllers\Admin\LoginController@login');
+   // [app\Http\Controllers\Admin\LoginController::class, 'paid']
+});
 
 // /*
 // |--------------------------------------------------------------------------
 // | 4) Admin ログイン後
 // |--------------------------------------------------------------------------
 // */
-// Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
-//     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
-//     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
-// });
+    Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+        Route::post('logout',   'App\Http\Controllers\Admin\LoginController@logout')->name('admin.logout');
+        Route::get('home',      'App\Http\Controllers\Admin\LoginController@index')->name('admin.home');
+    });
 
+
+// ここから追加
+// Route::get('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'showAdminLoginForm']);
+// Route::get('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'showAdminRegisterForm']);
+
+// Route::post('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin']);
+// Route::post('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'registerAdmin'])->name('admin-register');
+
+// Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
 
 
 

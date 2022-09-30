@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\School;
@@ -33,20 +34,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
+    // public function index()
+    // {
 
-         $event = Event::select('event.*');
-        //dd($event);
+    //      $event = Event::select('event.*');
+    //     //dd($event);
 
-        return view('event.event');
-        return view('admin.home');
-    }
+    //     return view('event.event');
+    //     return view('admin.home');
+    // }
     //top画面を表示する
 
-    public function admin(){
-        return view('edit.create');
-    }
+    // public function admin(){
+    //     return view('edit.create');
+    // }
 
     public function store(Request $request)
     {
