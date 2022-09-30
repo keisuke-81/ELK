@@ -40,12 +40,15 @@ class HomeController extends Controller
         //dd($event);
 
         return view('event.event');
-        return view('home');
+       // return view('home');
     }
     //top画面を表示する
 
     public function admin(){
         return view('edit.create');
+    }
+    public function user(){
+        return view('layouts.app');
     }
 
     public function store(Request $request)

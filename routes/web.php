@@ -35,6 +35,7 @@ Auth::routes();
 Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('index');
 //Route::get('/event/index', [App\Http\Controllers\EventController::class, 'event'])->name('event');
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->name('user');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/top', [TopController::class, 'top'])->name('top');
 Route::get('/eventDetail', [TopController::class, 'eventDetail'])->name('eventDetail');
