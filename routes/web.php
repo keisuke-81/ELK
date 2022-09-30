@@ -27,6 +27,8 @@ use App\Http\Controllers\FormController;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('layouts/top');
 });
@@ -60,12 +62,45 @@ Route::get('/free', [EventController::class, 'free'])->name('free');
 Route::get('/paid', [EventController::class, 'paid'])->name('paid');
 
 
+/*
+|--------------------------------------------------------------------------
+| 1) User 認証不要
+|--------------------------------------------------------------------------
+*/
+Route::get('/', function () { return redirect('/home'); });
 
-// Route::get('form', 'FormController@showRegistrationForm')->name('show');
-// Route::post('form', 'FormController@post')->name('post');
-// Route::get('form/confirm', 'FormController@confirm')->name('confirm');
-// Route::post('form/confirm', 'FormController@register')->name('resister');
-// Route::get('form/complete', 'FormController@complete')->name('complete');
+/*
+/*
+|--------------------------------------------------------------------------
+| 2) User ログイン後
+|--------------------------------------------------------------------------
+*/
+Route::group(['middleware' => 'auth:user'], function () {
+    Route::get('/top', 'HomeController@index')->name('home');
+});
+/*
+|--------------------------------------------------------------------------
+| 3) Admin 認証不要
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', function () {
+        return redirect('/admin/home');
+    });
+    Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Admin\LoginController@login');
+});
+
+/*
+|--------------------------------------------------------------------------
+| 4) Admin ログイン後
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
+    Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+    Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+});
+
 
 
 
