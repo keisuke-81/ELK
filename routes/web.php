@@ -34,7 +34,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/event', [App\Http\Controllers\EventController::class, 'index'])->name('index');
 //Route::get('/event/index', [App\Http\Controllers\EventController::class, 'event'])->name('event');
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+//Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/top', [TopController::class, 'top'])->name('top');
 Route::get('/eventDetail', [TopController::class, 'eventDetail'])->name('eventDetail');
@@ -67,6 +67,14 @@ Route::get('/paid', [EventController::class, 'paid'])->name('paid');
 // Route::post('form/confirm', 'FormController@register')->name('resister');
 // Route::get('form/complete', 'FormController@complete')->name('complete');
 
+
+Route::get('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'showAdminLoginForm']);
+Route::get('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'showAdminRegisterForm']);
+
+Route::post('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin']);
+Route::post('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'registerAdmin'])->name('admin-register');
+
+Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
 
 
 
