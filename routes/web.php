@@ -75,43 +75,66 @@ Route::get('/paid', [EventController::class, 'paid'])->name('paid');
 // | 2) User ログイン後
 // |--------------------------------------------------------------------------
 // */
-    Route::group(['middleware' => 'auth:user'], function () {
-        Route::get('/home', [TopController::class, 'top'])->name('top');
-    });
+    // Route::group(['middleware' => 'auth:user'], function () {
+    //     Route::get('/home', [TopController::class, 'top'])->name('top');
+    // });
 // /*
 // |--------------------------------------------------------------------------
 // | 3) Admin 認証不要
 // |--------------------------------------------------------------------------
 // */
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('/',         function () { return redirect('/admin/home'); });
-    Route::get('login',     'App\Http\Controllers\Admin\LoginController@showLoginForm')->name('admin.login');
-    Route::post('login',    'App\Http\Controllers\Admin\LoginController@login');
-   // [app\Http\Controllers\Admin\LoginController::class, 'paid']
-});
+// Route::group(['prefix' => 'admin'], function() {
+//     Route::get('/',         function () { return redirect('/admin/home'); });
+//     Route::get('login',     'App\Http\Controllers\Admin\LoginController@showLoginForm')->name('admin.login');
+//     Route::post('login',    'App\Http\Controllers\Admin\LoginController@login');
+//    // [app\Http\Controllers\Admin\LoginController::class, 'paid']
+// });
 
 // /*
 // |--------------------------------------------------------------------------
 // | 4) Admin ログイン後
 // |--------------------------------------------------------------------------
 // */
-    Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
-        Route::post('logout',   'App\Http\Controllers\Admin\LoginController@logout')->name('admin.logout');
-        Route::get('home',      'App\Http\Controllers\Admin\LoginController@index')->name('admin.home');
-    });
 
 
-// ここから追加
-// Route::get('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'showAdminLoginForm']);
-// Route::get('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'showAdminRegisterForm']);
+// | 3) Admin 認証不要
 
-// Route::post('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin']);
-// Route::post('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'registerAdmin'])->name('admin-register');
+        // Route::group(['prefix' => 'admin'], function() {
+        // Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showAdminLoginForm']);
+        // Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showAdminRegisterForm']);
 
-// Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
+        // Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin']);
+        // Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'registerAdmin'])->name('admin-register');
+
+        // Route::view('/', 'admin')->middleware('auth:admin')->name('admin-home');
+        // });
+
+        Route::get('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'showAdminLoginForm']);
+        Route::get('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'showAdminRegisterForm']);
+
+        Route::post('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin']);
+        Route::post('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'registerAdmin'])->name('admin-register');
+
+        Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
+
+
+// | 4) Admin ログイン後
+
+        // Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
+        //     Route::post('logout', 'App\Http\Controllers\Admin\LoginController@logout')->name('admin.logout');
+        //     Route::get('home', 'App\Http\Controllers\Admin\LoginController@index')->name('admin.home');
+        // });
 
 
 
+
+        // Route::get('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'showAdminLoginForm']);
+        // Route::get('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'showAdminRegisterForm']);
+
+        // Route::post('/login/admin', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin']);
+        // Route::post('/register/admin', [App\Http\Controllers\Auth\RegisterController::class, 'registerAdmin'])->name('admin-register');
+
+        // Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
 
 
 

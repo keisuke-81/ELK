@@ -103,4 +103,35 @@ class HomeController extends Controller
 
 
     }
+
+    //top -> home
+      public function home()
+    {
+
+       // $categories =DB::table('categories')
+       $categories =Category::whereNull('deleted_at')
+        ->orderBy('id','DESC')
+        ->get();
+
+
+         $events = Event::join('schools','events.school_id','=','schools.id')
+            ->join('images','events.image_id','=','images.id')
+            ->where('status', '=', 'open')
+            ->orderBy('event_day','DESC')
+            ->get();                      //
+       // dd($event_images);
+    //       -> join('event_categories', 'events.id', '=', 'event_categories.event_id')
+     //       ->join('categories', 'event_categories.category_id', '=', 'categories.id')
+
+        $count = DB::table('event_categories')
+        ->join('events','event_categories.event_id','events.id')
+       // ->where('event_day','=','2022-09-15 00:00:00')
+        ->where('category_id','=','3')
+        ->where('status', '=', 'open')
+        ->count();
+        //dd($count);
+
+        return view('home',compact('categories','events'));
+
+    }
 }
