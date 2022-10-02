@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Image;
 
 
+
+
 class ImageController extends Controller
 {
     public function upload(Request $request)
@@ -27,4 +29,6 @@ class ImageController extends Controller
 
         return redirect('admin');
     }
+
+
 }

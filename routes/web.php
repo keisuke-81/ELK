@@ -7,6 +7,8 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventCategory;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\SchoolController;
+
 
 
 
@@ -43,10 +45,10 @@ Route::get('/top', [TopController::class, 'top'])->name('top');
 Route::get('/eventDetail', [TopController::class, 'eventDetail'])->name('eventDetail');
 Route::get('/calendar', [TopController::class, 'calendar'])->name('calendar');
 Route::post('/upload', [ImageController::class, 'upload'])->name('upload');
-Route::post('/store', [HomeController::class, 'store'])->name('store');
-Route::post('/school', [HomeController::class, 'school'])->name('school');
-Route::post('/category', [HomeController::class, 'category'])->name('category');
-Route::post('/eventCategory', [HomeController::class, 'eventCategory'])->name('eventCategory');
+Route::post('/store', [EventController::class, 'store'])->name('store');
+Route::post('/school', [SchoolController::class, 'school'])->name('school');
+Route::post('/category', [EventController::class, 'category'])->name('category');
+Route::post('/eventCategory', [EventController::class, 'eventCategory'])->name('eventCategory');
 //Route::get('/upform', [FormController::class, 'upform'])->name('upform');
 Route::post('/upform', [FormController::class, 'upform'])->name('upform');
 Route::post('/thanks', [FormController::class, 'thanks'])->name('thanks');
@@ -127,7 +129,7 @@ Route::get('/paid', [EventController::class, 'paid'])->name('paid');
             Route::get('create', [App\Http\Controllers\Admin\LoginController::class, 'create'])->name('create');
 
         });
-            //Route::get('create', [App\Http\Controllers\Admin\LoginController::class, 'create'])->name('create');
+            Route::get('create', [App\Http\Controllers\Admin\LoginController::class, 'create'])->name('create');
 
 
 

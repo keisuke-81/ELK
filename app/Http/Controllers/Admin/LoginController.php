@@ -59,4 +59,5 @@ class LoginController extends Controller
     public function create(){
         return view('edit.create');
     }
+    
 }

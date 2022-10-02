@@ -36,7 +36,7 @@
 ') }}"> --}}
             </div>
 
-            <form method="POST" action="{{ route('store') }}" class="row g-3">
+            <form method="POST" action="store" class="row g-3">
                  @csrf
                 <div class="col-md-6">
             <div class="col-12"><h2>イベント情報入力</h2></div>
@@ -118,7 +118,7 @@
                 <button type="submit" class="btn btn-primary">データ送信</button>
             </div>
             </form>
-              <form method="POST" action="{{ route('school') }}" class="row g-3 bg-info">
+              <form method="POST" action="school" class="row g-3 bg-info">
                  @csrf
                 <div class="col-md-6 ">
             <div class="col-12"><h2>スクール情報</h2></div>
