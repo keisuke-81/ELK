@@ -56,4 +56,7 @@ class LoginController extends Controller
 
         return redirect('/admin/login');  //変更
     }
+    public function create(){
+        return view('edit.create');
+    }
 }
