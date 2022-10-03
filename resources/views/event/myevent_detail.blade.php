@@ -145,7 +145,7 @@
 
     <div class="col">
         <label for="exampleInputEmail1" class="form-label">ケータイもしくは電話番号</label>
-        <input type="number" name="tel" class="form-control" placeholder="電話番号" aria-label="">
+        <input type="tel" name="tel" class="form-control" placeholder="電話番号" aria-label="">
     </div>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">メールアドレス</label>
