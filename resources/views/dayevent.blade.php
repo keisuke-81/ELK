@@ -80,10 +80,10 @@
                            {{-- <div class="card-body"> --}}
                            {{-- {{ dd($event_days) }} --}}
                              @foreach ($event_days as $event_day)
-                             <div class="card-body col-4 flex-fill bd-highlight">
+                             <div class="card-body col-lg-4 col-sm-5 lg-flex-fill lg-bd-highlight ">
 
                                 {{-- カードを入れてみる --}}
-                                <div class="card h-100" style="width: 18rem;">
+                                <div class="card h-100 center_item" style="width: 18rem;">
                                 <img class="card-img-top" src="{{ asset($event_day -> path) }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $event_day->title }}</h5>
