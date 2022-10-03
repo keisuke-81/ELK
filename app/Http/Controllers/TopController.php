@@ -71,7 +71,11 @@ class TopController extends Controller
         ->count();
         //dd($count);
 
-        return view('event.event',compact('categories','events'));
+        $event_count = Event::where('status', '=', 'open')
+        ->count();
+        //dd($event_count);
+
+        return view('event.event',compact('categories','events','event_count'));
 
     }
 

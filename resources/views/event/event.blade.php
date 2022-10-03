@@ -37,8 +37,8 @@
                                 </div>
                             </div>
 
-                            <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
-                            
+                            <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示（{{ $event_count }}件）</h4></a>
+
                             {{-- <br>
                             <br>
                             <a href="{{ url('top') }}" class="card-text d-block text-under-none text-success"> <h4>全て表示</h4></a>
