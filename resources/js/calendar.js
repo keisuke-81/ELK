@@ -57,7 +57,7 @@ let calendar = new Calendar(calendarEl, {
 
             },
         {
-          title  : '',
+          title  : '1',
           start  : '2022-10-09'
         },
         {
