@@ -11,7 +11,8 @@
     <div class="container font-regu">
 <h2>お申込みありがとうございます。</h2>
 <p>決済完了後に登録完了とさせていただいきます。</p>
-<button type="button"   class="btn btn-warning btn-lg" onClick="{{ url('/pay') }}">決済画面へ</button>
+{{-- {{ dd($event_images->calendar_url) }} --}}
+<button type="button"   class="btn btn-warning btn-lg" onClick="location.href='{{ ($event_images->calendar_url) }}'">決済画面へ</button>
 <div></div>
 </div>
 @endsection

@@ -108,7 +108,7 @@ class FormController extends Controller
         $event_images = Event::join('images', 'events.image_id', '=', 'images.id')
                                                     ->where('my_event', 1)
                                                     ->where('status', '=', 'open')
-                                                    ->get();
+                                                    ->first();
 
         //dd($event_images);
 
