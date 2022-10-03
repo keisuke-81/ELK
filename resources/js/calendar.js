@@ -162,8 +162,8 @@ let calendar = new Calendar(calendarEl, {
 
 
       ],
-      color: 'blue',     // an option!
-      textColor: 'yellow' // an option!
+       color: 'white',     // an option!
+       textColor: 'black' // an option!
     }
 
     // any other event sources...
