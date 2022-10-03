@@ -47,7 +47,12 @@ class EventController extends Controller
 
                 $goodword = "無料";
 
-        return view('event.event', compact('categories', 'events','goodword'));
+
+                $event_count = Event::where('status', '=', 'open')
+                        ->count();
+
+
+        return view('event.event', compact('categories', 'events','goodword','event_count'));
 
 
     }
@@ -68,8 +73,11 @@ class EventController extends Controller
 
                 $goodword = "有料";
 
+                $event_count = Event::where('status', '=', 'open')
+                                        ->count();
 
-        return view('event.event', compact('categories', 'events','goodword'));
+
+        return view('event.event', compact('categories', 'events','goodword','event_count'));
 
 
     }
