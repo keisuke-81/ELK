@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\School;
@@ -79,6 +79,7 @@ class FormController extends Controller
         //$request->session()->put("form_input", $input);
 
 
+
         return view('event.myevent_detail', compact('school_name','categories'));
     }
 
@@ -151,6 +152,16 @@ $categories =Category::whereNull('deleted_at')
         //dd($event_id);
         $event = $posts;
         //dd($event);
+
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:255'],
+            'kana' => ['required'],
+            'tel' => ['required'],
+            'email' => ['required'],
+            'kids_age' => ['required'],
+
+        ]);
+
 
 
         return view('event.check_form', compact('event'));

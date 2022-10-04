@@ -130,13 +130,19 @@
         <label for="exampleInputEmail1" class="form-label">お名前</label>
         <div class="form-group">
             <input type="text" name="name"  class="form-control" placeholder="お名前" aria-label="">様
-
+            @error('name')
+            <div class="alert alert-danger">お名前のご記入をお願いします</div>
+            @enderror
         </div>
+
 
     </div>
     <div class="col">
         <label for="exampleInputEmail1" class="form-label">フリガナ</label>
         <input type="text" name="kana"class="form-control" placeholder="フリガナ" aria-label="">
+         @error('kana')
+        <div class="alert alert-danger">フリガナのご記入をお願いします</div>
+        @enderror
     </div>
 
     </div>
@@ -146,11 +152,17 @@
     <div class="col">
         <label for="exampleInputEmail1" class="form-label">ケータイもしくは電話番号</label>
         <input type="tel" name="tel" class="form-control" placeholder="電話番号" aria-label="">
+        @error('tel')
+        <div class="alert alert-danger">ケータイもしくは電話番号のご記入をお願いします</div>
+        @enderror
     </div>
+
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">メールアドレス</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="メールアドレス">
-
+        @error('email')
+        <div class="alert alert-danger">メールアドレスのご記入をお願いします</div>
+        @enderror
     </div>
     </div>
 
@@ -158,7 +170,9 @@
     <div class="mb-3 col-4">
         <label for="exampleInputEmail1" class="form-label">お子様年齢</label>
         <input type="number" name="kids_age" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="お子様の年齢">
-
+        @error('kids_age')
+        <div class="alert alert-danger">お子様年齢のご記入をお願いします</div>
+        @enderror
     </div>
     <div class="col">
         <label for="exampleInputEmail1" class="form-label">コメント欄（ご要望、もしくはお子様が２名以上参加される場合、追加の人数と年齢をご記入ください）</label>
