@@ -62,6 +62,19 @@ class HomeController extends Controller
         Event::insert(['content' => $posts['content'],'content_summary' => $posts['content_summary'],'title' => $posts['title'],'event_day' => $posts['event_day'],'target_min_age' => $posts['target_min_age'],'target_max_age' => $posts['target_max_age'],'school_id' => $posts['school_id'],'image_id' => $posts['image_id'],'area' => $posts['area'],'my_event' => $posts['my_event'],'price_free' => $posts['price_free'], 'price' => $posts['price'],'event_url' => $posts['event_url'],'calendar_url' => $calendar_url,'status' => $posts['status']]);
        //もし他のテーブルにもデータを送る場合下の記述で入ります。
         // EventImage::insert(['image_id' => $posts['school_id'],'event_id' => $posts['_token']]);
+
+    $validatedData = $request->validate([
+                'content' => ['required'],
+                'content_summary' => ['required'],
+                'title' => ['required'],
+                'event_day' => ['required'],
+                'image_id' => ['required'],
+                'event_url' => ['required'],
+                'calendar_url' => ['required'],
+
+            ]);
+
+
         return redirect('admin');
 
 

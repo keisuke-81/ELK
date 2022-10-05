@@ -121,6 +121,7 @@
     <div class="container font-regu">
  <form class="px-5 py-5" method="POST" action="{{ url('/upform') }}" enctype="multipart/form-data">
     @csrf
+    {{-- {{ dd($school_name) }} --}}
     <input type="hidden" name="event_id"class="form-control" placeholder="フリガナ" aria-label="" value="{{ $school_name->event_id }}">
 
     <h2>イベント名：{{ $school_name->school_name }}</h2>

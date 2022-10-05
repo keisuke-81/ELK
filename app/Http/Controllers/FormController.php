@@ -83,10 +83,10 @@ class FormController extends Controller
         return view('event.myevent_detail', compact('school_name','categories'));
     }
 
-    public function check($id)
+    public function check($event_id)
     {
 
-
+        //dd($event_id);
         $school_name = Event:: join('schools','events.school_id','=','schools.id')
         ->join('images','events.image_id','=','images.id')
         ->join('event_categories','events.id','=','event_categories.event_id')
@@ -101,9 +101,11 @@ class FormController extends Controller
 
      public function thanks(Request $request)
     {
-         //dd($request);
 
-        $event_id = EventUser::insertGetId(['event_id' => $request['event_id'],'name' => $request['name'],'kana' => $request['kana'],'email' => $request['email'],'tel' => $request['tel'],'kids_age' => $request['kids_age'],'comment' => $request['comment']]);
+        $posts = $request->all();
+        //dd($posts);
+
+        $event_id = EventUser::insertGetId(['event_id' => $posts['event_id'],'name' => $posts['name'],'kana' => $posts['kana'],'email' => $posts['email'],'tel' => $posts['tel'],'kids_age' => $posts['kids_age'],'comment' => $posts['comment']]);
         //dd($request);
         //dd($event_id );
         $event_images = Event::join('images', 'events.image_id', '=', 'images.id')
@@ -112,8 +114,11 @@ class FormController extends Controller
                                                     ->first();
 
         //dd($event_images);
+        $pay_url = Event::where('id','=',$posts['event_id'])
+        ->first();
+        //dd($pay_url);
 
-        return view('event.thanks_form', compact('event_images'));
+        return view('event.thanks_form', compact('event_images','posts','pay_url'));
 
     }
 
@@ -134,7 +139,7 @@ $categories =Category::whereNull('deleted_at')
         //dd($event_images);
 
 
-        return view('event.elk', compact('event_images','categories'));
+        return view('event.elk', compact('event_images','categories',));
 
     }
 
