@@ -56,7 +56,7 @@ class TopController extends Controller
 
          $events = Event::join('schools','events.school_id','=','schools.id')
             ->join('images','events.image_id','=','images.id')
-            ->where('status', '=', 'open')
+           // ->where('status', '=', 'open')
             ->orderBy('event_day','DESC')
             ->get();                      //
        // dd($event_images);
@@ -67,15 +67,15 @@ class TopController extends Controller
         ->join('events','event_categories.event_id','events.id')
        // ->where('event_day','=','2022-09-15 00:00:00')
         ->where('category_id','=','3')
-        ->where('status', '=', 'open')
+       // ->where('status', '=', 'open')
         ->count();
         //dd($count);
 
-        $event_count = Event::where('status', '=', 'open')
-        ->count();
+        // $event_count = Event::where('status', '=', 'open')
+        // ->count();
         //dd($event_count);
 
-        return view('event.event',compact('categories','events','event_count'));
+        return view('event.event',compact('categories','events'));
 
     }
 

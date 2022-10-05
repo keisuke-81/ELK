@@ -51,28 +51,55 @@ class HomeController extends Controller
     public function store(Request $request)
     {
 
+
+
         $posts = $request->all();
        // $request->validate(['content' => 'required' ]);
        //dd($posts);
         // $key = $request->id;
         // dd($key);
         //dd($posts['content']);
+
+        //画像の入力
+        // ディレクトリ名
+
+            $validatedData = $request->validate([
+                    'image' => ['required'],
+                    'title' => ['required'],
+                    'school_id' => ['required'],
+                    'event_day' => ['required'],
+                    'event_url' => ['required'],
+                    'content' => ['required'],
+
+                ]);
+          DB::transaction(function()use($posts,$request){
+            $dir = 'sample';
+
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image')->getClientOriginalName();
+
+        // 取得したファイル名で保存
+        $request->file('image')->storeAs('public/' . $dir, $file_name);
+
+        // ファイル情報をDBに保存
+        $image = new Image();
+        $image->image_name = $file_name;
+        $image->path = 'storage/' . $dir . '/' . $file_name;
+        $image->save();
+        //dd($image -> id);
+
         $calendar_url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=キッズイベント&dates=20'.$posts['day'].'T'.$posts['open'].'00/20'.$posts['day'].'T'.$posts['end'].'00&details=イベント内容：'.$posts['title'].'イベント詳細url:'.$posts['event_url'];
         //dd($calendar_url);
-        Event::insert(['content' => $posts['content'],'content_summary' => $posts['content_summary'],'title' => $posts['title'],'event_day' => $posts['event_day'],'target_min_age' => $posts['target_min_age'],'target_max_age' => $posts['target_max_age'],'school_id' => $posts['school_id'],'image_id' => $posts['image_id'],'area' => $posts['area'],'my_event' => $posts['my_event'],'price_free' => $posts['price_free'], 'price' => $posts['price'],'event_url' => $posts['event_url'],'calendar_url' => $calendar_url,'status' => $posts['status']]);
+        $event_id = Event::insertGetId(['content' => $posts['content'],'content_summary' => $posts['content_summary'],'title' => $posts['title'],'event_day' => $posts['event_day'],'target_min_age' => $posts['target_min_age'],'target_max_age' => $posts['target_max_age'],'school_id' => $posts['school_id'],'image_id' => $image -> id,'area' => $posts['area'],'my_event' => $posts['my_event'],'price_free' => $posts['price_free'], 'price' => $posts['price'],'event_url' => $posts['event_url'],'calendar_url' => $calendar_url,'status' => $posts['status']]);
        //もし他のテーブルにもデータを送る場合下の記述で入ります。
         // EventImage::insert(['image_id' => $posts['school_id'],'event_id' => $posts['_token']]);
+        //イベントidとからのカテゴリ
 
-    $validatedData = $request->validate([
-                'content' => ['required'],
-                'content_summary' => ['required'],
-                'title' => ['required'],
-                'event_day' => ['required'],
-                'image_id' => ['required'],
-                'event_url' => ['required'],
-                'calendar_url' => ['required'],
+        EventCategory::insert(['event_id' => $event_id,'category_id' =>15]);
+          });
 
-            ]);
+
+
 
 
         return redirect('admin');
@@ -82,6 +109,18 @@ class HomeController extends Controller
 
     public function school(Request $request)
     {
+
+
+        //dd($request);
+
+        $posts = $request->all();
+
+                $validatedData = $request->validate([
+                    'school_name' => ['required'],
+
+
+                ]);
+
         //dd($request);
         $posts = $request->all();
        // $request->validate(['content' => 'required' ]);
@@ -94,6 +133,13 @@ class HomeController extends Controller
     }
     public function category(Request $request)
     {
+
+             $validatedData = $request->validate([
+                    'name' => ['required'],
+
+
+                ]);
+
         //dd($request);
         $posts = $request->all();
        // $request->validate(['content' => 'required' ]);
@@ -108,6 +154,13 @@ class HomeController extends Controller
     {
         ($request);
         $posts = $request->all();
+
+         $validatedData = $request->validate([
+                    'event_id' => ['required'],
+                    'category_id' => ['required'],
+
+                ]);
+
        // $request->validate(['content' => 'required' ]);
 
         EventCategory::insert(['event_id' => $posts['event_id'],'category_id' => $posts['category_id']]);
