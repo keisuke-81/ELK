@@ -116,6 +116,10 @@
   <div class="card-body col">
     <button type="button" onclick="location.href='{{ $school_name->calendar_url }}'" class="btn btn-warning btn-lg font-s">カレンダーに同期</button>
   </div>
+  <div class="card-body col">
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="{{ $school_name->event_url }}" data-text="キッズイベントの紹介です！タイトル：{{ $school_name->title }}" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
   {{-- <div class="card-body col">
     <button type="button" onclick="location.href='{{ $school_name->outlookcalendar_url }}'" class="btn btn-success btn-lg font-s">Outlookに同期</button>
   </div> --}}
