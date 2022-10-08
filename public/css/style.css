@@ -10,14 +10,14 @@ body{
     font-family:'Mochiy Pop P One','Ribeye Marrow','Courier New', Courier, monospace;
 }
 .top-title1{
-    font-family: 'Hachi Maru Pop', cursive;
-    font-weight: bold;
+    /* font-family: 'Hachi Maru Pop', cursive; */
+    font-family: 'Yusei Magic', sans-serif;
+    /* font-weight: bold; */
     /* font-family: 'Yusei Magic', sans-serif */
     /* font-family:'Mochiy Pop P One','Ribeye Marrow','Courier New', Courier, monospace; */
 }
 .top-title2 {
     font-family: 'Hachi Maru Pop', cursive;
-    font-weight: bold;
     color: rgb(59, 59, 199);
     /* font-family: 'Yusei Magic', sans-serif */
     /* font-family:'Mochiy Pop P One','Ribeye Marrow','Courier New', Courier, monospace; */

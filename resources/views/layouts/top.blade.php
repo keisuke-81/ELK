@@ -24,7 +24,8 @@
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ribeye+Marrow&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Mochiy+Pop+P+One&family=Ribeye+Marrow&family=Yusei+Magic&display=swap" rel="stylesheet">
-    <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Luckiest+Guy&family=Mochiy+Pop+P+One&family=Ribeye+Marrow&family=Yusei+Magic&display=swap" rel="stylesheet">
+  <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -57,8 +58,8 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/top') }}">
                     <div class="row">
-                        <h1 class=" display-1 text-success top-title3">{{ config('app.name', 'Laravel') }}    <span class="display-5 text-warning">e-learning</span><span class="display-5">!</span><span class="display-5 text-warning"> kids</span></h1>
-                         {{-- <h1 class=" display-1 text-primary top-title1">夢<span class="display-1 top-title2">mid</span><span class="display-1 top-title1">!</span></h1> --}}
+                        {{-- <h1 class=" display-1 text-success top-title3">{{ config('app.name', 'Laravel') }}    <span class="display-5 text-warning">e-learning</span><span class="display-5">!</span><span class="display-5 text-warning"> kids</span></h1> --}}
+                         <h1 class=" display-1 text-primary top-title1">夢<span class="display-1 top-title1">mid</span><span class="display-1 top-title1">!</span></h1>
 
                     </div>
 

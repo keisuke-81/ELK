@@ -38,8 +38,8 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/top') }}">
                     <div class="row">
-                        <h1 class=" display-1 text-success top-title">{{ config('app.name', 'Laravel') }}    <span class="display-5 text-warning">e-learning</span><span class="display-5">!</span><span class="display-5 text-warning"> kids</span></h1>
-
+                        {{-- <h1 class=" display-1 text-success top-title">{{ config('app.name', 'Laravel') }}    <span class="display-5 text-warning">e-learning</span><span class="display-5">!</span><span class="display-5 text-warning"> kids</span></h1> --}}
+                        <h1 class=" display-1 text-primary top-title1">夢<span class="display-1 top-title1">mid</span><span class="display-1 top-title1">!</span></h1>
 
                     </div>
 
