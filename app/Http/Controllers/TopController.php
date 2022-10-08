@@ -56,7 +56,7 @@ class TopController extends Controller
 
          $events = Event::join('schools','events.school_id','=','schools.id')
             ->join('images','events.image_id','=','images.id')
-           // ->where('status', '=', 'open')
+            ->where('status', '=', 'open')
             ->orderBy('event_day','DESC')
             ->get();                      //
        // dd($event_images);
